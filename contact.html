@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shamim Plaza | Elevating South Shahi Eidgah</title>
+    <title>Contact Us | Shamim Plaza</title>
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   </head>
   <body>
-    
     <!-- Sticky Header -->
     <header class="header" id="header">
       <div class="header-container">
@@ -24,7 +23,7 @@
         
         <!-- Desktop Nav -->
         <nav class="desktop-nav">
-          <a href="/" class="nav-link active">Profile</a>
+          <a href="/" class="nav-link">Profile</a>
           <div class="nav-dropdown">
             <a href="/services.html" class="nav-link">Services <i data-lucide="chevron-down" style="width:16px;height:16px;"></i></a>
             <div class="dropdown-content">
@@ -34,7 +33,7 @@
               <a href="/services.html#residential">Residential</a>
             </div>
           </div>
-          <a href="/contact.html" class="nav-link">Contact Us</a>
+          <a href="/contact.html" class="nav-link active">Contact Us</a>
         </nav>
 
         <!-- Mobile Menu Toggle -->
@@ -58,58 +57,31 @@
           <a href="/services.html#office">- Office Space</a>
           <a href="/services.html#residential">- Residential</a>
         </div>
-        <a href="/contact.html">Contact Us</a>
+        <a href="/contact.html" class="active">Contact Us</a>
       </nav>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-bg" id="hero-parallax"></div>
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <h1 class="hero-title reveal">Elevation. Elegance. Excellence.</h1>
-        <p class="hero-subtitle reveal reveal-delay-1">The New Landmark of South Shahi Eidgah. Sylhet's premier destination for business, commerce, and bespoke living.</p>
-        <div class="hero-cta reveal reveal-delay-2">
-          <a href="#portfolio" class="btn btn-ghost">Explore Spaces</a>
-          <a href="#inquiry-form" class="btn btn-gold">Book a Stay</a>
-        </div>
-      </div>
-    </section>
+    <div style="height: 100px;"></div>
 
-
-    <!-- Amenities Gallery -->
-    <section class="section amenities-section">
+    <!-- Location / Map Section -->
+    <section class="section" style="padding-bottom: 0;">
       <div class="container">
-        <div class="amenities-header reveal">
-          <h2>World-Class Amenities</h2>
-          <p class="text-gold">Designed for uncompromising comfort and security.</p>
-        </div>
-        
-        <div class="amenities-scroll reveal reveal-delay-1">
-          <div class="amenity-item glass-panel">
-            <div class="amenity-icon"><i data-lucide="shield-check"></i></div>
-            <h4 class="text-white">Safety</h4>
-            <p>24/7 CCTV & Multi-Tiered Security system covering all public spaces.</p>
-          </div>
-          <div class="amenity-item glass-panel">
-            <div class="amenity-icon"><i data-lucide="arrow-up-down"></i></div>
-            <h4 class="text-white">Access</h4>
-            <p>High-speed passenger elevators and dedicated service lifts.</p>
-          </div>
-          <div class="amenity-item glass-panel">
-            <div class="amenity-icon"><i data-lucide="car"></i></div>
-            <h4 class="text-white">Convenience</h4>
-            <p>On-site dedicated parking levels with automated entry capabilities.</p>
-          </div>
-          <div class="amenity-item glass-panel">
-            <div class="amenity-icon"><i data-lucide="zap"></i></div>
-            <h4 class="text-white">Reliability</h4>
-            <p>100% standby generator ensuring zero downtime for critical systems.</p>
-          </div>
+        <div class="reveal">
+          <h2 class="text-white" style="font-size: 2.5rem; text-align: center; margin-bottom: 12px;">Prime Location</h2>
+          <p class="text-gold" style="text-align: center; margin-bottom: 24px;">South Shahi Edgah, Sylhet</p>
         </div>
       </div>
+      <div class="map-container reveal reveal-delay-1" style="width: 100%; height: 450px; margin-top: 40px; overflow: hidden; position: relative;">
+        <!-- Custom HTML Map Marker -->
+        <a href="https://maps.app.goo.gl/WRUibehpbBUcYXMQ8" target="_blank" class="custom-map-marker">
+          <i data-lucide="map-pin" class="marker-icon"></i>
+          <span class="marker-text">SHAMIM PLAZA</span>
+          <span class="directions-pill">Get Directions <i data-lucide="external-link" style="width:12px; height:12px; margin-left:4px;"></i></span>
+        </a>
+        <!-- CSS trick to invert map colors to fit dark theme -->
+        <iframe src="https://maps.google.com/maps?q=WV3J%2BV5%20Sylhet,%20Bangladesh&t=m&z=17&output=embed&iwloc=near" width="100%" height="100%" frameborder="0" style="border:0; filter: invert(90%) hue-rotate(180deg) brightness(85%) contrast(110%); pointer-events: none;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+      </div>
     </section>
-
 
     <!-- Footer / Contact Hub -->
     <footer id="contact" class="section footer">

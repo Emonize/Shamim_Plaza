@@ -42,6 +42,30 @@ revealElements.forEach(el => {
   revealOnScroll.observe(el);
 });
 
+// Mobile Menu Toggle
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const closeMenuBtn = document.getElementById('close-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+if (mobileMenuBtn && closeMenuBtn && mobileMenu) {
+  mobileMenuBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    mobileMenu.classList.add('open');
+  });
+  
+  closeMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+  });
+
+  // Close menu when clicking a link
+  const mobileLinks = mobileMenu.querySelectorAll('a');
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+    });
+  });
+}
+
 // Parallax Effect for Hero
 const heroBg = document.getElementById('hero-parallax');
 const header = document.getElementById('header');
