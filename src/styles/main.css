@@ -690,6 +690,19 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
 }
 
+.contact-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: stretch;
+}
+
+@media (max-width: 992px) {
+  .contact-split {
+    grid-template-columns: 1fr;
+  }
+}
+
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

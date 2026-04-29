@@ -73,69 +73,20 @@
       <p class="text-gold" style="text-align: center; margin-bottom: 20px; font-size: 1.2rem;">We are here to help you find your perfect space.</p>
     </div>
 
-    <!-- Location / Map Section -->
-    <section class="section" style="padding-bottom: 0;">
+    <!-- Split Section: Map & Form -->
+    <section class="section" style="padding-top: 20px; padding-bottom: 40px;">
       <div class="container">
-        <div class="reveal">
-          <h2 class="text-white" style="font-size: 2.5rem; text-align: center; margin-bottom: 12px;">Prime Location</h2>
-          <p class="text-gold" style="text-align: center; margin-bottom: 24px;">South Shahi Edgah, Sylhet</p>
-        </div>
-      </div>
-      <div class="map-container reveal reveal-delay-1" style="width: 100%; height: 450px; margin-top: 40px; overflow: hidden; position: relative;">
-        <!-- Custom HTML Map Marker -->
-        <a href="https://maps.app.goo.gl/WRUibehpbBUcYXMQ8" target="_blank" class="custom-map-marker">
-          <i data-lucide="map-pin" class="marker-icon"></i>
-          <span class="marker-text">SHAMIM PLAZA</span>
-          <span class="directions-pill">Get Directions <i data-lucide="external-link" style="width:12px; height:12px; margin-left:4px;"></i></span>
-        </a>
-        <!-- CSS trick to invert map colors to fit dark theme -->
-        <iframe src="https://maps.google.com/maps?q=WV3J%2BV5%20Sylhet,%20Bangladesh&t=m&z=17&output=embed&iwloc=near" width="100%" height="100%" frameborder="0" style="border:0; filter: invert(90%) hue-rotate(180deg) brightness(85%) contrast(110%); pointer-events: none;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-      </div>
-    </section>
-
-    <!-- Footer / Contact Hub -->
-    <footer id="contact" class="section footer">
-      <div class="container">
-        <div class="footer-grid">
+        <div class="contact-split">
           
-          <!-- Left: QR Code -->
-          <div class="qr-section reveal">
-            <div class="qr-placeholder" style="background: white; padding: 10px; border-radius: 8px;">
-              <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://wa.me/8801725842875" alt="WhatsApp QR Code" style="width: 100%; height: 100%; object-fit: contain;">
-            </div>
-            <h3 class="text-white" style="margin-bottom: 8px;">Instant Chat</h3>
-            <p>Scan to instantly message us on WhatsApp</p>
-          </div>
-
-          <!-- Center: Contact Stack -->
-          <div class="contact-stack reveal reveal-delay-1">
-            <h3 class="text-gold" style="font-family: var(--font-body); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;">Contact Us</h3>
-            <a href="https://wa.me/8801725842875" class="contact-item" target="_blank">
-              <i data-lucide="message-circle"></i>
-              <span>01725 842875 (WhatsApp)</span>
-            </a>
-            <a href="tel:+8801626352366" class="contact-item">
-              <i data-lucide="phone"></i>
-              <span>01626 352366</span>
-            </a>
-            <a href="mailto:Shamimplazabd@gmail.com" class="contact-item">
-              <i data-lucide="mail"></i>
-              <span>Shamimplazabd@gmail.com</span>
-            </a>
-            <div class="contact-item" style="align-items: flex-start;">
-              <i data-lucide="map-pin" style="margin-top: 4px;"></i>
-              <span>South Shahi Edgah,<br/>Sylhet, Bangladesh.</span>
-            </div>
-          </div>
-
-          <!-- Right: Contact Form -->
-          <form id="inquiry-form" action="https://formsubmit.co/Shamimplazabd@gmail.com" method="POST" class="contact-form glass-panel reveal reveal-delay-2">
+          <!-- Left: Direct Inquiry Form -->
+          <form id="inquiry-form" action="https://formsubmit.co/Shamimplazabd@gmail.com" method="POST" class="contact-form glass-panel reveal reveal-delay-1" style="display: flex; flex-direction: column; justify-content: center;">
             <!-- FormSubmit Configuration -->
             <input type="hidden" name="_subject" value="New Inquiry from Shamim Plaza Website!">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
             
-            <h3 class="text-white" style="margin-bottom: 8px;">Direct Inquiry</h3>
+            <h3 class="text-white" style="margin-bottom: 8px; font-size: 1.8rem;">Direct Inquiry</h3>
+            <p class="text-white-muted" style="margin-bottom: 24px;">Send us a message and we'll get back to you promptly.</p>
             <div class="form-group">
               <input type="text" name="name" class="form-control" placeholder="Your Name" required>
             </div>
@@ -154,10 +105,61 @@
               </select>
             </div>
             <div class="form-group">
-              <textarea name="message" class="form-control" placeholder="Your Message" required></textarea>
+              <textarea name="message" class="form-control" placeholder="Your Message" rows="4" required></textarea>
             </div>
             <button type="submit" class="btn btn-gold" style="margin-top: 8px; width: 100%;">Send Message</button>
           </form>
+
+          <!-- Right: Map -->
+          <div class="map-container reveal reveal-delay-2" style="width: 100%; height: 100%; min-height: 500px; overflow: hidden; position: relative; border-radius: 12px;">
+            <!-- Custom HTML Map Marker -->
+            <a href="https://maps.app.goo.gl/WRUibehpbBUcYXMQ8" target="_blank" class="custom-map-marker">
+              <i data-lucide="map-pin" class="marker-icon"></i>
+              <span class="marker-text">SHAMIM PLAZA</span>
+              <span class="directions-pill">Get Directions <i data-lucide="external-link" style="width:12px; height:12px; margin-left:4px;"></i></span>
+            </a>
+            <!-- CSS trick to invert map colors to fit dark theme -->
+            <iframe src="https://maps.google.com/maps?q=WV3J%2BV5%20Sylhet,%20Bangladesh&t=m&z=17&output=embed&iwloc=near" width="100%" height="100%" frameborder="0" style="border:0; filter: invert(90%) hue-rotate(180deg) brightness(85%) contrast(110%); pointer-events: none;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer / Contact Hub -->
+    <footer id="contact" class="section footer" style="padding-top: 40px;">
+      <div class="container">
+        <div class="footer-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); max-width: 800px; margin: 0 auto;">
+          
+          <!-- Left: QR Code -->
+          <div class="qr-section reveal">
+            <div class="qr-placeholder" style="background: white; padding: 10px; border-radius: 8px;">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://wa.me/8801725842875" alt="WhatsApp QR Code" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <h3 class="text-white" style="margin-bottom: 8px;">Instant Chat</h3>
+            <p>Scan to instantly message us on WhatsApp</p>
+          </div>
+
+          <!-- Right: Contact Stack -->
+          <div class="contact-stack reveal reveal-delay-1">
+            <h3 class="text-gold" style="font-family: var(--font-body); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;">Contact Information</h3>
+            <a href="https://wa.me/8801725842875" class="contact-item" target="_blank">
+              <i data-lucide="message-circle"></i>
+              <span>01725 842875 (WhatsApp)</span>
+            </a>
+            <a href="tel:+8801626352366" class="contact-item">
+              <i data-lucide="phone"></i>
+              <span>01626 352366</span>
+            </a>
+            <a href="mailto:Shamimplazabd@gmail.com" class="contact-item">
+              <i data-lucide="mail"></i>
+              <span>Shamimplazabd@gmail.com</span>
+            </a>
+            <div class="contact-item" style="align-items: flex-start;">
+              <i data-lucide="map-pin" style="margin-top: 4px;"></i>
+              <span>South Shahi Edgah,<br/>Sylhet, Bangladesh.</span>
+            </div>
+          </div>
 
         </div>
       </div>
