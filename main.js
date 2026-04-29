@@ -1,5 +1,5 @@
 import './src/styles/main.css'
-import { createIcons, Gem, Store, Building2, BedDouble, ShieldCheck, ArrowUpDown, Car, Zap, MessageCircle, Mail, MapPin, Phone } from 'lucide';
+import { createIcons, Gem, Store, Building2, BedDouble, ShieldCheck, ArrowUpDown, Car, Zap, MessageCircle, Mail, MapPin, Phone, Home } from 'lucide';
 
 // Initialize Icons
 createIcons({
@@ -15,7 +15,8 @@ createIcons({
     MessageCircle,
     Mail,
     MapPin,
-    Phone
+    Phone,
+    Home
   }
 });
 
