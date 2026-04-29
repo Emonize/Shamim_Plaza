@@ -881,3 +881,55 @@ textarea.form-control {
   backdrop-filter: blur(4px);
   border: 1px solid rgba(212, 175, 55, 0.3);
 }
+
+/* Neighborhood Zig-Zag Layout */
+.neighborhood-zig-zag {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  padding: 40px 0 80px;
+}
+
+.zig-zag-row {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.zig-zag-row:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.zig-zag-img-container {
+  flex: 1;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.zig-zag-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.zig-zag-content {
+  flex: 1;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .zig-zag-row, .zig-zag-row:nth-child(even) {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .zig-zag-img {
+    height: 300px;
+  }
+  .neighborhood-zig-zag {
+    gap: 60px;
+  }
+}
