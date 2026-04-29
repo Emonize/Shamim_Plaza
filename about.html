@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home | Shamim Plaza</title>
+    <title>About Us | Shamim Plaza</title>
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,8 +24,8 @@
         
         <!-- Desktop Nav -->
         <nav class="desktop-nav">
-          <a href="/" class="nav-link active">Home</a>
-          <a href="/about.html" class="nav-link">About Us</a>
+          <a href="/" class="nav-link">Home</a>
+          <a href="/about.html" class="nav-link active">About Us</a>
           <div class="nav-dropdown">
             <a href="/portfolio.html" class="nav-link">Portfolio <i data-lucide="chevron-down" style="width:16px;height:16px;"></i></a>
             <div class="dropdown-content">
@@ -52,8 +52,8 @@
         <i data-lucide="x"></i>
       </button>
       <nav class="mobile-nav">
-        <a href="/" class="active">Home</a>
-        <a href="/about.html">About Us</a>
+        <a href="/">Home</a>
+        <a href="/about.html" class="active">About Us</a>
         <a href="/portfolio.html">Portfolio</a>
         <div class="mobile-sub-nav">
           <a href="/portfolio.html#residential" style="color: var(--color-gold); font-weight: 600;">Residential</a>
@@ -66,47 +66,90 @@
       </nav>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-bg" id="hero-parallax"></div>
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <h1 class="hero-title reveal">Elevation. Elegance. Excellence.</h1>
-        <p class="hero-subtitle reveal reveal-delay-1">The New Landmark of South Shahi Eidgah. Sylhet's premier destination for business, commerce, and bespoke living.</p>
-        <div class="hero-cta reveal reveal-delay-2">
-          <a href="#portfolio" class="btn btn-ghost">Explore Spaces</a>
-          <a href="#inquiry-form" class="btn btn-gold">Book a Stay</a>
+    <!-- Spacer for fixed header -->
+    <div style="height: 120px;"></div>
+
+    <div class="container reveal">
+      <h1 class="text-white" style="font-size: 3rem; text-align: center; margin-bottom: 12px; font-family: 'Italiana', serif;">About Us</h1>
+      <p class="text-gold" style="text-align: center; margin-bottom: 40px; font-size: 1.2rem;">A Legacy of Excellence in South Shahi Eidgah</p>
+    </div>
+
+
+    <!-- Amenities Gallery -->
+    <section class="section amenities-section">
+      <div class="container">
+        <div class="amenities-header reveal">
+          <h2>World-Class Amenities</h2>
+          <p class="text-gold">Designed for uncompromising comfort and security.</p>
+        </div>
+        
+        <div class="amenities-scroll reveal reveal-delay-1">
+          <div class="amenity-item glass-panel">
+            <div class="amenity-icon"><i data-lucide="shield-check"></i></div>
+            <h4 class="text-white">Safety</h4>
+            <p>24/7 CCTV & Multi-Tiered Security system covering all public spaces.</p>
+          </div>
+          <div class="amenity-item glass-panel">
+            <div class="amenity-icon"><i data-lucide="arrow-up-down"></i></div>
+            <h4 class="text-white">Access</h4>
+            <p>High-speed passenger elevators and dedicated service lifts.</p>
+          </div>
+          <div class="amenity-item glass-panel">
+            <div class="amenity-icon"><i data-lucide="car"></i></div>
+            <h4 class="text-white">Convenience</h4>
+            <p>On-site dedicated parking levels with automated entry capabilities.</p>
+          </div>
+          <div class="amenity-item glass-panel">
+            <div class="amenity-icon"><i data-lucide="zap"></i></div>
+            <h4 class="text-white">Reliability</h4>
+            <p>100% standby generator ensuring zero downtime for critical systems.</p>
+          </div>
         </div>
       </div>
     </section>
 
 
-    <!-- Discover Our Spaces -->
-    <section class="section glass-panel" style="margin: 40px 5%; border-radius: 12px;">
+    <!-- The Neighborhood Guide -->
+    <section class="section neighborhood-section">
       <div class="container">
-        <div class="reveal" style="text-align: center; margin-bottom: 40px;">
-          <h2 class="text-white" style="font-size: 2.5rem; font-family: 'Italiana', serif; margin-bottom: 12px;">Discover Our Spaces</h2>
-          <p class="text-gold" style="font-size: 1.1rem;">Tailored environments for living, working, and thriving.</p>
+        <div class="reveal">
+          <h2 class="text-white" style="font-size: 2.5rem; text-align: center; margin-bottom: 12px;">The Neighborhood</h2>
+          <p class="text-gold" style="text-align: center; margin-bottom: 40px;">Prime Connectivity in South Shahi Eidgah, Sylhet</p>
         </div>
         
-        <div class="discover-grid reveal reveal-delay-1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
-          <a href="/portfolio.html#residential" class="glass-panel" style="text-decoration: none; padding: 40px 24px; text-align: center; display: block; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition-normal);">
-            <i data-lucide="home" style="width: 48px; height: 48px; color: var(--color-gold); margin-bottom: 20px;"></i>
-            <h3 class="text-white" style="margin-bottom: 12px;">Residential</h3>
-            <p class="text-white-muted" style="font-size: 0.95rem; margin: 0;">Fully furnished and bespoke unfurnished luxury apartments.</p>
-          </a>
+        <div class="neighborhood-grid reveal reveal-delay-1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+          <!-- Location 1: Airport -->
+          <div class="neighborhood-card glass-panel" style="display: flex; gap: 16px; align-items: center; padding: 24px;">
+            <div style="background: rgba(212, 175, 55, 0.1); padding: 16px; border-radius: 50%; color: var(--color-gold);">
+              <i data-lucide="plane" style="width: 24px; height: 24px;"></i>
+            </div>
+            <div>
+              <h4 class="text-white" style="margin-bottom: 4px; font-size: 1.1rem;">Osmani Airport</h4>
+              <p class="text-white-muted" style="font-size: 0.9rem; margin: 0;">Seamless international travel connections.</p>
+            </div>
+          </div>
+          
+          <!-- Location 2: Medical -->
+          <div class="neighborhood-card glass-panel" style="display: flex; gap: 16px; align-items: center; padding: 24px;">
+            <div style="background: rgba(212, 175, 55, 0.1); padding: 16px; border-radius: 50%; color: var(--color-gold);">
+              <i data-lucide="stethoscope" style="width: 24px; height: 24px;"></i>
+            </div>
+            <div>
+              <h4 class="text-white" style="margin-bottom: 4px; font-size: 1.1rem;">Top Medical Centers</h4>
+              <p class="text-white-muted" style="font-size: 0.9rem; margin: 0;">Minutes away from Sylhet's premier hospitals.</p>
+            </div>
+          </div>
 
-          <a href="/portfolio.html#office" class="glass-panel" style="text-decoration: none; padding: 40px 24px; text-align: center; display: block; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition-normal);">
-            <i data-lucide="building-2" style="width: 48px; height: 48px; color: var(--color-gold); margin-bottom: 20px;"></i>
-            <h3 class="text-white" style="margin-bottom: 12px;">Office Space</h3>
-            <p class="text-white-muted" style="font-size: 0.95rem; margin: 0;">Premium executive infrastructure with high-speed connectivity.</p>
-          </a>
-
-          <a href="/portfolio.html#retail" class="glass-panel" style="text-decoration: none; padding: 40px 24px; text-align: center; display: block; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition-normal);">
-            <i data-lucide="store" style="width: 48px; height: 48px; color: var(--color-gold); margin-bottom: 20px;"></i>
-            <h3 class="text-white" style="margin-bottom: 12px;">Elite Retail</h3>
-            <p class="text-white-muted" style="font-size: 0.95rem; margin: 0;">Expansive storefronts designed for maximum commercial visibility.</p>
-          </a>
+          <!-- Location 3: Commercial -->
+          <div class="neighborhood-card glass-panel" style="display: flex; gap: 16px; align-items: center; padding: 24px;">
+            <div style="background: rgba(212, 175, 55, 0.1); padding: 16px; border-radius: 50%; color: var(--color-gold);">
+              <i data-lucide="shopping-bag" style="width: 24px; height: 24px;"></i>
+            </div>
+            <div>
+              <h4 class="text-white" style="margin-bottom: 4px; font-size: 1.1rem;">Commercial Hub</h4>
+              <p class="text-white-muted" style="font-size: 0.9rem; margin: 0;">Surrounded by thriving retail and business districts.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
