@@ -804,44 +804,11 @@ textarea.form-control {
   min-height: 120px;
 }
 
-/* Mobile Sticky Bar */
-.mobile-sticky-bar {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(15, 15, 17, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-top: 1px solid var(--color-glass-border);
-  z-index: 100;
-  padding: 12px 5%;
-}
-
-.mobile-actions {
-  display: flex;
-  gap: 12px;
-}
-
-.mobile-actions .btn {
-  flex: 1;
-  padding: 12px;
-  font-size: 0.9rem;
-}
-
 @media (max-width: 768px) {
   .hero-title {
     font-size: 2.5rem;
   }
-  
-  .mobile-sticky-bar {
-    display: block;
-  }
 
-  body {
-    padding-bottom: 70px; /* Space for sticky bar */
-  }
 
   .portfolio-grid {
     grid-template-columns: 1fr;
