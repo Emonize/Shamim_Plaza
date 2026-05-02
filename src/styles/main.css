@@ -42,7 +42,7 @@ a {
 html, body {
   font-family: var(--font-body);
   background-color: var(--color-obsidian);
-  background-image: linear-gradient(rgba(10, 10, 12, 0.50), rgba(10, 10, 12, 0.70)), url('/bg-wallpaper.png');
+  background-image: linear-gradient(rgba(10, 10, 12, 0.50), rgba(10, 10, 12, 0.70)), url('/bg-wallpaper.webp');
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
