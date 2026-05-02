@@ -1,5 +1,5 @@
 import './src/styles/main.css'
-import { createIcons, Gem, Store, Building2, BedDouble, ShieldCheck, ArrowUpDown, Car, Zap, MessageCircle, Mail, MapPin, Phone, Home, Wifi, ArrowUpCircle, Wind, Maximize, ChevronDown, X, ExternalLink, CheckCircle2, ChevronRight, Menu, Play, XCircle } from 'lucide';
+import { createIcons, Gem, Store, Building2, BedDouble, ShieldCheck, ArrowUpDown, Car, Zap, MessageCircle, Mail, MapPin, Phone, Home, Wifi, ArrowUpCircle, Wind, Maximize, ChevronDown, ChevronLeft, X, ExternalLink, Check, CheckCircle2, ChevronRight, Menu, PaintBucket, Play, XCircle } from 'lucide';
 import { client, urlFor } from './src/sanityClient.js';
 
 // Initialize Icons globally so we can call it again when injecting new HTML
@@ -24,11 +24,14 @@ window.refreshIcons = () => {
       Wind,
       Maximize,
       ChevronDown,
+      ChevronLeft,
       X,
       ExternalLink,
+      Check,
       CheckCircle2,
       ChevronRight,
       Menu,
+      PaintBucket,
       Play,
       XCircle
     }
@@ -93,15 +96,17 @@ window.addEventListener('scroll', () => {
   
   // Apply parallax transform
   // The slower movement factor (e.g. 0.4) creates the parallax depth
-  if (scrollPosition < window.innerHeight) {
+  if (heroBg && scrollPosition < window.innerHeight) {
     heroBg.style.transform = `translateY(${scrollPosition * 0.4}px)`;
   }
   
   // Sticky header background
-  if (scrollPosition > 50) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
+  if (header) {
+    if (scrollPosition > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
   }
 });
 
