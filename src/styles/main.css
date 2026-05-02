@@ -147,37 +147,6 @@ h1, h2, h3, h4, h5, h6 {
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
 
-/* Cinematic Hero Animation (Looping) */
-.hero-appear {
-  opacity: 0;
-  animation: heroTextAppearLoop 6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
-}
-.hero-appear.delay-1 {
-  animation-delay: 0.4s;
-}
-@keyframes heroTextAppearLoop {
-  0% {
-    opacity: 0;
-    transform: translateY(20px) scale(0.98);
-    filter: blur(8px);
-  }
-  15% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-  }
-  85% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-20px) scale(1.02);
-    filter: blur(8px);
-  }
-}
-
 /* Sticky Header */
 .header {
   position: fixed;
