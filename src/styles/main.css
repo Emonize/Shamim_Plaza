@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+@font-face {
+    font-family: 'Moanas';
+    src: url('/fonts/moanas.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
   --color-obsidian: #0f0f11;
   --color-obsidian-light: #18181b;
@@ -32,6 +42,10 @@ a {
 html, body {
   font-family: var(--font-body);
   background-color: var(--color-obsidian);
+  background-image: linear-gradient(rgba(10, 10, 12, 0.50), rgba(10, 10, 12, 0.70)), url('/bg-wallpaper.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
   color: var(--color-white-muted);
   overflow-x: hidden;
   scroll-behavior: smooth;
@@ -415,11 +429,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo-text {
-  font-family: 'Moana Medium', 'Moana', sans-serif;
-  font-size: 1.6rem;
-  font-weight: 500;
-  letter-spacing: 4px;
-  text-transform: uppercase;
+  font-family: 'Moanas', 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  font-weight: normal;
+  letter-spacing: 2px;
+  text-transform: none;
   display: inline-flex;
 }
 
