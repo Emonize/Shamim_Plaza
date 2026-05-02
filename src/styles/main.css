@@ -120,8 +120,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Scroll Animations */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: translateY(30px);
+  transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .reveal.active {
@@ -129,9 +129,9 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(0);
 }
 
-.reveal-delay-1 { transition-delay: 0.2s; }
-.reveal-delay-2 { transition-delay: 0.4s; }
-.reveal-delay-3 { transition-delay: 0.6s; }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
 
 /* Sticky Header */
 .header {
@@ -405,9 +405,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo-text {
-  font-family: 'Italiana', serif;
+  font-family: 'Moana Medium', 'Moana', sans-serif;
   font-size: 1.6rem;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 4px;
   text-transform: uppercase;
   display: inline-flex;
@@ -619,6 +619,47 @@ h1, h2, h3, h4, h5, h6 {
 .amenity-item p {
   font-size: 0.9rem;
   color: var(--color-white-muted);
+}
+
+/* Promotions Carousel */
+.promo-carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 20px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212,175,55,0.5) transparent;
+}
+.promo-carousel::-webkit-scrollbar {
+  height: 6px;
+}
+.promo-carousel::-webkit-scrollbar-track {
+  background: transparent;
+}
+.promo-carousel::-webkit-scrollbar-thumb {
+  background-color: rgba(212,175,55,0.5);
+  border-radius: 10px;
+}
+.promo-slide {
+  flex: 0 0 calc(100% - 40px);
+  max-width: 900px;
+  min-width: 300px;
+  scroll-snap-align: center;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(212,175,55,0.3);
+  background-color: var(--color-obsidian);
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .promo-slide {
+    flex: 0 0 80%;
+    flex-direction: row;
+  }
 }
 
 /* Custom Map Marker Overlay */
@@ -923,5 +964,230 @@ textarea.form-control {
   }
   .neighborhood-zig-zag {
     gap: 60px;
+  }
+}
+
+/* ==========================================================================
+   PROPERTY CARDS & LIGHTBOX GALLERY
+   ========================================================================== */
+
+.property-card {
+  background: var(--color-glass-bg);
+  border: 1px solid var(--color-glass-border);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: var(--transition-med);
+  display: flex;
+  flex-direction: column;
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.property-card-img-container {
+  position: relative;
+  width: 100%;
+  padding-top: 66.66%; /* 3:2 Aspect Ratio */
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.property-card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.property-card:hover .property-card-img {
+  transform: scale(1.05);
+}
+
+.property-status-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(10, 10, 12, 0.8);
+  color: var(--color-gold);
+  padding: 6px 12px;
+  border-radius: 2px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.property-card-content {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.property-card-title {
+  font-size: 1.5rem;
+  font-family: var(--font-heading);
+  color: var(--color-white);
+  margin-bottom: 8px;
+}
+
+.property-card-meta {
+  display: flex;
+  gap: 16px;
+  color: var(--color-white-muted);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.property-card-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.property-card-desc {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 24px;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.property-card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.property-price {
+  font-family: var(--font-heading);
+  color: var(--color-gold);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.lightbox-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 12, 0.98);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.lightbox-content {
+  position: relative;
+  z-index: 10000;
+  max-width: 90vw;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  border-radius: 4px;
+}
+
+.lightbox-caption {
+  color: var(--color-white-muted);
+  margin-top: 16px;
+  font-size: 1rem;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.lightbox-btn {
+  position: absolute;
+  z-index: 10001;
+  background: rgba(10, 10, 12, 0.8);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  color: var(--color-gold);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  backdrop-filter: blur(4px);
+}
+
+.lightbox-btn:hover {
+  background: var(--color-gold);
+  color: var(--color-obsidian);
+  border-color: var(--color-gold);
+  transform: scale(1.1);
+}
+
+.lightbox-close {
+  top: 24px;
+  right: 24px;
+}
+
+.lightbox-nav {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-prev {
+  left: 24px;
+}
+
+.lightbox-next {
+  right: 24px;
+}
+
+@media (max-width: 768px) {
+  .lightbox-nav {
+    bottom: 24px;
+    top: auto;
+    transform: none;
+  }
+  .lightbox-prev {
+    left: 30%;
+  }
+  .lightbox-next {
+    right: 30%;
   }
 }

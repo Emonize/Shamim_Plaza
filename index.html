@@ -3,7 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home | Shamim Plaza</title>
+    <title>Shamim Plaza | Premium Commercial & Residential Spaces in Sylhet</title>
+    <meta name="description" content="Discover luxury commercial and residential real estate at Shamim Plaza in Sylhet. Elevate your lifestyle and business in our premier properties." />
+    <meta name="keywords" content="Shamim Plaza, Sylhet Real Estate, Luxury Apartments, Commercial Space, Office Space, Retail Space" />
+    <meta name="author" content="Shamim Plaza" />
+    
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Shamim Plaza | Premium Real Estate in Sylhet" />
+    <meta property="og:description" content="Discover luxury commercial and residential real estate at Shamim Plaza in Sylhet." />
+    <meta property="og:image" content="https://www.shamimplaza.com/shamim_plaza.jpg" />
+    <meta property="og:url" content="https://www.shamimplaza.com/" />
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Shamim Plaza | Premium Real Estate in Sylhet" />
+    <meta name="twitter:description" content="Discover luxury commercial and residential real estate at Shamim Plaza in Sylhet." />
+    <meta name="twitter:image" content="https://www.shamimplaza.com/shamim_plaza.jpg" />
+    
+    <!-- JSON-LD Schema for Local Business/Real Estate -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Shamim Plaza",
+      "image": "https://www.shamimplaza.com/logo.jpg",
+      "description": "Premium Commercial & Residential Spaces in Sylhet.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sylhet",
+        "addressCountry": "BD"
+      },
+      "url": "https://www.shamimplaza.com/"
+    }
+    </script>
+
     <meta name="view-transition" content="same-origin" />
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,12 +47,12 @@
     <style>body{background-color:#0f0f11;color:#ffffff;margin:0;}</style>
   </head>
   <body>
-    
+
     <!-- Sticky Header -->
     <header class="header" id="header">
       <div class="header-container">
         <a href="/" class="logo">
-          <img src="/logo.jpg" alt="Shamim Plaza Logo" class="main-logo">
+          <img src="/logo.jpg" alt="Shamim Plaza Logo" class="main-logo" style="height: 50px; width: auto; border-radius: 50%;">
           <span class="logo-text">
             <span style="--i:1">S</span><span style="--i:2">H</span><span style="--i:3">A</span><span style="--i:4">M</span><span style="--i:5">I</span><span style="--i:6">M</span><span style="--i:7">&nbsp;</span><span style="--i:8">P</span><span style="--i:9">L</span><span style="--i:10">A</span><span style="--i:11">Z</span><span style="--i:12">A</span>
           </span>
@@ -31,11 +65,11 @@
           <div class="nav-dropdown">
             <a href="/portfolio.html" class="nav-link">Portfolio <i data-lucide="chevron-down" style="width:16px;height:16px;"></i></a>
             <div class="dropdown-content">
-              <a href="/portfolio.html#residential" style="font-weight: 600;">Residential</a>
-              <a href="/portfolio.html#furnished" class="sub-item">- Furnished Apartment</a>
-              <a href="/portfolio.html#unfurnished" class="sub-item">- Non Furnished Apartment</a>
-              <a href="/portfolio.html#office">Office Space</a>
-              <a href="/portfolio.html#retail">Retail Space</a>
+              <a href="/portfolio.html" style="font-weight: 600;">All Spaces</a>
+              <a href="/furnished.html" class="sub-item">- Furnished Apartment</a>
+              <a href="/unfurnished.html" class="sub-item">- Non Furnished Apartment</a>
+              <a href="/office.html">Office Space</a>
+              <a href="/retail.html">Retail Space</a>
             </div>
           </div>
           <a href="/contact.html" class="nav-link">Contact Us</a>
@@ -58,11 +92,11 @@
         <a href="/about.html">About Us</a>
         <a href="/portfolio.html">Portfolio</a>
         <div class="mobile-sub-nav">
-          <a href="/portfolio.html#residential" style="color: var(--color-gold); font-weight: 600;">Residential</a>
-          <a href="/portfolio.html#furnished" style="padding-left: 20px; font-size: 0.95rem;">- Furnished Apartment</a>
-          <a href="/portfolio.html#unfurnished" style="padding-left: 20px; font-size: 0.95rem;">- Non Furnished Apartment</a>
-          <a href="/portfolio.html#office">Office Space</a>
-          <a href="/portfolio.html#retail">Retail Space</a>
+          <a href="/portfolio.html" style="color: var(--color-gold); font-weight: 600;">All Spaces</a>
+          <a href="/furnished.html" style="padding-left: 20px; font-size: 0.95rem;">- Furnished Apartment</a>
+          <a href="/unfurnished.html" style="padding-left: 20px; font-size: 0.95rem;">- Non Furnished Apartment</a>
+          <a href="/office.html">Office Space</a>
+          <a href="/retail.html">Retail Space</a>
         </div>
         <a href="/contact.html">Contact Us</a>
       </nav>
@@ -73,8 +107,8 @@
       <div class="hero-bg" id="hero-parallax"></div>
       <div class="hero-overlay"></div>
       <div class="container hero-content">
-        <h1 class="hero-title reveal">Elevation. Elegance. Excellence.</h1>
-        <p class="hero-subtitle reveal reveal-delay-1">The New Landmark of South Shahi Eidgah. Sylhet's premier destination for business, commerce, and bespoke living.</p>
+        <h1 id="hero-title" class="hero-title reveal">Elevation. Elegance. Excellence.</h1>
+        <p id="hero-subtitle" class="hero-subtitle reveal reveal-delay-1">The New Landmark of South Shahi Eidgah. Sylhet's premier destination for business, commerce, and bespoke living.</p>
         <div class="hero-cta reveal reveal-delay-2">
           <a href="/portfolio.html" class="btn btn-ghost">Explore Spaces</a>
           <a href="/contact.html" class="btn btn-gold">Book a Stay</a>
@@ -82,6 +116,14 @@
       </div>
     </section>
 
+
+
+    <!-- Dynamic Featured Opportunities Carousel -->
+    <section class="section" style="padding-top: 0; overflow: hidden;">
+      <div id="promotions-carousel-container" class="container reveal">
+        <!-- Dynamic Ad Content Injected Here -->
+      </div>
+    </section>
 
     <!-- Discover Our Spaces -->
     <section class="section glass-panel" style="margin: 40px 5%; border-radius: 12px;">
@@ -113,6 +155,8 @@
       </div>
     </section>
 
+
+
     <!-- Amenities Gallery -->
     <section class="section amenities-section" style="padding-top: 0;">
       <div class="container">
@@ -121,27 +165,8 @@
           <p class="text-gold" style="font-size: 1.1rem;">Designed for uncompromising comfort and security.</p>
         </div>
         
-        <div class="amenities-scroll reveal reveal-delay-1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
-          <div class="amenity-item glass-panel" style="padding: 30px 20px; text-align: center; border: 1px solid rgba(255,255,255,0.05);">
-            <div class="amenity-icon"><i data-lucide="shield-check" style="width: 40px; height: 40px; color: var(--color-gold); margin-bottom: 16px;"></i></div>
-            <h4 class="text-white" style="margin-bottom: 8px; font-size: 1.2rem;">Safety</h4>
-            <p class="text-white-muted" style="font-size: 0.95rem; margin: 0;">24/7 CCTV & Multi-Tiered Security system covering all public spaces.</p>
-          </div>
-          <div class="amenity-item glass-panel" style="padding: 30px 20px; text-align: center; border: 1px solid rgba(255,255,255,0.05);">
-            <div class="amenity-icon"><i data-lucide="arrow-up-down" style="width: 40px; height: 40px; color: var(--color-gold); margin-bottom: 16px;"></i></div>
-            <h4 class="text-white" style="margin-bottom: 8px; font-size: 1.2rem;">Access</h4>
-            <p class="text-white-muted" style="font-size: 0.95rem; margin: 0;">High-speed passenger elevators and dedicated service lifts.</p>
-          </div>
-          <div class="amenity-item glass-panel" style="padding: 30px 20px; text-align: center; border: 1px solid rgba(255,255,255,0.05);">
-            <div class="amenity-icon"><i data-lucide="car" style="width: 40px; height: 40px; color: var(--color-gold); margin-bottom: 16px;"></i></div>
-            <h4 class="text-white" style="margin-bottom: 8px; font-size: 1.2rem;">Convenience</h4>
-            <p class="text-white-muted" style="font-size: 0.95rem; margin: 0;">On-site dedicated parking levels with automated entry capabilities.</p>
-          </div>
-          <div class="amenity-item glass-panel" style="padding: 30px 20px; text-align: center; border: 1px solid rgba(255,255,255,0.05);">
-            <div class="amenity-icon"><i data-lucide="zap" style="width: 40px; height: 40px; color: var(--color-gold); margin-bottom: 16px;"></i></div>
-            <h4 class="text-white" style="margin-bottom: 8px; font-size: 1.2rem;">Reliability</h4>
-            <p class="text-white-muted" style="font-size: 0.95rem; margin: 0;">100% standby generator ensuring zero downtime for critical systems.</p>
-          </div>
+        <div id="amenities-container" class="amenities-scroll reveal reveal-delay-1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
+          <!-- Dynamic Sanity Amenities will be injected here -->
         </div>
       </div>
     </section>
@@ -192,7 +217,7 @@
       <div class="container">
         <div style="text-align: center;">
           <img src="/logo.jpg" alt="Shamim Plaza Logo" style="width: 40px; height: 40px; border-radius: 50%; margin-bottom: 16px; opacity: 0.8;">
-          <p class="text-white-muted" style="font-size: 0.9rem;">&copy; 2026 Shamim Plaza. All rights reserved.</p>
+          <p id="footer-text" class="text-white-muted" style="font-size: 0.9rem;">&copy; 2026 Shamim Plaza. All rights reserved.</p>
           <p class="text-gold" style="font-size: 0.8rem; margin-top: 8px;">South Shahi Edgah, Sylhet</p>
         </div>
       </div>

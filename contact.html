@@ -3,7 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us | Shamim Plaza</title>
+    <title>Contact Us | Shamim Plaza Inquiries</title>
+    <meta name="description" content="Get in touch with the Shamim Plaza team for leasing inquiries, commercial space availability, and residential opportunities in Sylhet." />
+    <meta name="keywords" content="Contact Shamim Plaza, Leasing Sylhet, Real Estate Inquiries, Shamim Plaza Phone Number" />
+    <meta name="author" content="Shamim Plaza" />
+    
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Contact Us | Shamim Plaza Inquiries" />
+    <meta property="og:description" content="Get in touch with the Shamim Plaza team for leasing inquiries and commercial space availability." />
+    <meta property="og:image" content="https://www.shamimplaza.com/shamim_plaza.jpg" />
+    <meta property="og:url" content="https://www.shamimplaza.com/contact.html" />
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Contact Us | Shamim Plaza" />
+    <meta name="twitter:description" content="Get in touch with the Shamim Plaza team for leasing inquiries and commercial space availability." />
+    <meta name="twitter:image" content="https://www.shamimplaza.com/shamim_plaza.jpg" />
+    
     <meta name="view-transition" content="same-origin" />
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +34,7 @@
     <header class="header" id="header">
       <div class="header-container">
         <a href="/" class="logo">
-          <img src="/logo.jpg" alt="Shamim Plaza Logo" class="main-logo">
+          <img src="/logo.jpg" alt="Shamim Plaza Logo" class="main-logo" style="height: 50px; width: auto; border-radius: 50%;">
           <span class="logo-text">
             <span style="--i:1">S</span><span style="--i:2">H</span><span style="--i:3">A</span><span style="--i:4">M</span><span style="--i:5">I</span><span style="--i:6">M</span><span style="--i:7">&nbsp;</span><span style="--i:8">P</span><span style="--i:9">L</span><span style="--i:10">A</span><span style="--i:11">Z</span><span style="--i:12">A</span>
           </span>
@@ -30,11 +47,11 @@
           <div class="nav-dropdown">
             <a href="/portfolio.html" class="nav-link">Portfolio <i data-lucide="chevron-down" style="width:16px;height:16px;"></i></a>
             <div class="dropdown-content">
-              <a href="/portfolio.html#residential" style="font-weight: 600;">Residential</a>
-              <a href="/portfolio.html#furnished" class="sub-item">- Furnished Apartment</a>
-              <a href="/portfolio.html#unfurnished" class="sub-item">- Non Furnished Apartment</a>
-              <a href="/portfolio.html#office">Office Space</a>
-              <a href="/portfolio.html#retail">Retail Space</a>
+              <a href="/portfolio.html" style="font-weight: 600;">All Spaces</a>
+              <a href="/furnished.html" class="sub-item">- Furnished Apartment</a>
+              <a href="/unfurnished.html" class="sub-item">- Non Furnished Apartment</a>
+              <a href="/office.html">Office Space</a>
+              <a href="/retail.html">Retail Space</a>
             </div>
           </div>
           <a href="/contact.html" class="nav-link active">Contact Us</a>
@@ -57,11 +74,11 @@
         <a href="/about.html">About Us</a>
         <a href="/portfolio.html">Portfolio</a>
         <div class="mobile-sub-nav">
-          <a href="/portfolio.html#residential" style="color: var(--color-gold); font-weight: 600;">Residential</a>
-          <a href="/portfolio.html#furnished" style="padding-left: 20px; font-size: 0.95rem;">- Furnished Apartment</a>
-          <a href="/portfolio.html#unfurnished" style="padding-left: 20px; font-size: 0.95rem;">- Non Furnished Apartment</a>
-          <a href="/portfolio.html#office">Office Space</a>
-          <a href="/portfolio.html#retail">Retail Space</a>
+          <a href="/portfolio.html" style="color: var(--color-gold); font-weight: 600;">All Spaces</a>
+          <a href="/furnished.html" style="padding-left: 20px; font-size: 0.95rem;">- Furnished Apartment</a>
+          <a href="/unfurnished.html" style="padding-left: 20px; font-size: 0.95rem;">- Non Furnished Apartment</a>
+          <a href="/office.html">Office Space</a>
+          <a href="/retail.html">Retail Space</a>
         </div>
         <a href="/contact.html" class="active">Contact Us</a>
       </nav>
@@ -151,15 +168,15 @@
             </a>
             <a href="tel:+8801626352366" class="contact-item">
               <i data-lucide="phone"></i>
-              <span>01626 352366</span>
+              <span id="contact-phone">01626 352366</span>
             </a>
             <a href="mailto:Shamimplazabd@gmail.com" class="contact-item">
               <i data-lucide="mail"></i>
-              <span>Shamimplazabd@gmail.com</span>
+              <span id="contact-email">Shamimplazabd@gmail.com</span>
             </a>
             <div class="contact-item" style="align-items: flex-start;">
               <i data-lucide="map-pin" style="margin-top: 4px;"></i>
-              <span>South Shahi Edgah,<br/>Sylhet, Bangladesh.</span>
+              <span><span id="contact-address">South Shahi Edgah</span>,<br/><span id="contact-city">Sylhet, Bangladesh</span>.</span>
             </div>
           </div>
 
