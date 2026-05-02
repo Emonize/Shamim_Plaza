@@ -147,24 +147,34 @@ h1, h2, h3, h4, h5, h6 {
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
 
-/* Cinematic Hero Animation */
+/* Cinematic Hero Animation (Looping) */
 .hero-appear {
   opacity: 0;
-  animation: heroTextAppear 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: heroTextAppearLoop 6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
 }
 .hero-appear.delay-1 {
   animation-delay: 0.4s;
 }
-@keyframes heroTextAppear {
+@keyframes heroTextAppearLoop {
   0% {
     opacity: 0;
-    transform: translateY(40px) scale(0.95);
-    filter: blur(10px);
+    transform: translateY(20px) scale(0.98);
+    filter: blur(8px);
   }
-  100% {
+  15% {
     opacity: 1;
     transform: translateY(0) scale(1);
     filter: blur(0);
+  }
+  85% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px) scale(1.02);
+    filter: blur(8px);
   }
 }
 
