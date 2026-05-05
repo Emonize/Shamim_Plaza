@@ -1,3 +1,5 @@
+import {AmenityPreview} from '../components/AmenityPreview'
+
 export default {
   name: 'amenity',
   title: 'Amenity',
@@ -9,6 +11,9 @@ export default {
       options: { columns: 2 }
     }
   ],
+  components: {
+    preview: AmenityPreview
+  },
   fields: [
     {
       name: 'title',
