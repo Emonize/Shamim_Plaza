@@ -1,3 +1,5 @@
+import {BigToggle} from '../components/BigToggle'
+
 export default {
   name: 'amenity',
   title: 'Amenity',
@@ -19,11 +21,13 @@ export default {
     },
     {
       name: 'isActive',
-      title: 'Active?',
+      title: ' ',
       type: 'boolean',
-      description: 'Show on website',
       fieldset: 'header',
-      initialValue: true
+      initialValue: true,
+      components: {
+        input: BigToggle
+      }
     },
     {
       name: 'iconName',
