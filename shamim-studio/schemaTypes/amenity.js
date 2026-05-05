@@ -2,18 +2,27 @@ export default {
   name: 'amenity',
   title: 'Amenity',
   type: 'document',
+  fieldsets: [
+    {
+      name: 'header',
+      title: 'Amenity',
+      options: { columns: 2 }
+    }
+  ],
   fields: [
     {
       name: 'title',
       title: 'Title',
       type: 'string',
+      fieldset: 'header',
       validation: Rule => Rule.required()
     },
     {
       name: 'isActive',
-      title: 'Is Active?',
+      title: 'Active?',
       type: 'boolean',
-      description: 'Turn this on to display it on the live website.',
+      description: 'Show on website',
+      fieldset: 'header',
       initialValue: true
     },
     {
