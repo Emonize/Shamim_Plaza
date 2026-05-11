@@ -81,18 +81,18 @@ export default {
     {
       name: 'website',
       title: 'Website URL',
-      type: 'url'
+      type: 'string'
     },
     {
       name: 'facebook',
       title: 'Facebook URL',
-      type: 'url',
+      type: 'string',
       description: 'Optional link to Facebook page'
     },
     {
       name: 'twitter',
       title: 'Twitter URL',
-      type: 'url',
+      type: 'string',
       description: 'Optional link to Twitter/X profile'
     },
     {

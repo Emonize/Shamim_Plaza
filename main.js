@@ -641,34 +641,41 @@ async function fetchAndRenderBusinesses() {
         mCategory.textContent = biz.category;
         mDesc.textContent = biz.description || '';
         
+        const ensureHttps = (url) => {
+          if (!url) return '';
+          url = url.trim();
+          if (url.startsWith('http://') || url.startsWith('https://')) return url;
+          return \`https://\${url}\`;
+        };
+
         let linksHtml = '';
         if (biz.phone) {
-          linksHtml += `
-            <a href="tel:${biz.phone}" class="portal-link-item">
+          linksHtml += \`
+            <a href="tel:\${biz.phone}" class="portal-link-item">
               <i data-lucide="phone" style="width: 20px; height: 20px;"></i>
-              ${biz.phone}
-            </a>`;
+              \${biz.phone}
+            </a>\`;
         }
         if (biz.website) {
-          linksHtml += `
-            <a href="${biz.website}" target="_blank" rel="noopener noreferrer" class="portal-link-item">
+          linksHtml += \`
+            <a href="\${ensureHttps(biz.website)}" target="_blank" rel="noopener noreferrer" class="portal-link-item">
               <i data-lucide="globe" style="width: 20px; height: 20px;"></i>
               Visit Website
-            </a>`;
+            </a>\`;
         }
         if (biz.facebook) {
-          linksHtml += `
-            <a href="${biz.facebook}" target="_blank" rel="noopener noreferrer" class="portal-link-item">
+          linksHtml += \`
+            <a href="\${ensureHttps(biz.facebook)}" target="_blank" rel="noopener noreferrer" class="portal-link-item">
               <i data-lucide="facebook" style="width: 20px; height: 20px;"></i>
               Facebook
-            </a>`;
+            </a>\`;
         }
         if (biz.twitter) {
-          linksHtml += `
-            <a href="${biz.twitter}" target="_blank" rel="noopener noreferrer" class="portal-link-item">
+          linksHtml += \`
+            <a href="\${ensureHttps(biz.twitter)}" target="_blank" rel="noopener noreferrer" class="portal-link-item">
               <i data-lucide="twitter" style="width: 20px; height: 20px;"></i>
               Twitter
-            </a>`;
+            </a>\`;
         }
         mLinks.innerHTML = linksHtml;
         
