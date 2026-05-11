@@ -533,7 +533,9 @@ async function fetchAndRenderSettings() {
 
     const updateText = (id, text) => {
       const el = document.getElementById(id);
-      if (el && text) el.textContent = text;
+      if (el) {
+        el.textContent = text || '';
+      }
     };
 
     // Homepage
