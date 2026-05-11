@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resident Portal | Shamim Plaza</title>
+  <meta name="description" content="Explore the businesses and services located at Shamim Plaza in Sylhet, Bangladesh." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/src/styles/main.css" />
+  <style>
+    .portal-hero {
+      padding: 180px 5% 100px;
+      text-align: center;
+      background: linear-gradient(to bottom, rgba(15, 15, 17, 1) 0%, rgba(10, 10, 12, 1) 100%);
+    }
+
+    .directory-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+      margin: 60px auto;
+      max-width: 1400px;
+      padding: 0 5%;
+    }
+
+    .business-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 30px;
+      transition: var(--transition-normal);
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .business-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(212, 175, 55, 0.3);
+      transform: translateY(-5px);
+    }
+
+    .business-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 12px;
+      background: rgba(212, 175, 55, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-gold);
+      margin-bottom: 20px;
+    }
+
+    .business-name {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: var(--color-white);
+    }
+
+    .business-category {
+      font-size: 0.9rem;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    /* Modal Styles */
+    .portal-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 10, 12, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .portal-modal.active {
+      display: flex;
+    }
+
+    .portal-modal-content {
+      background: var(--color-obsidian-light);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 16px;
+      max-width: 600px;
+      width: 100%;
+      padding: 40px;
+      position: relative;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .portal-modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: transparent;
+      border: none;
+      color: var(--color-white-muted);
+      cursor: pointer;
+      padding: 5px;
+      transition: color var(--transition-fast);
+    }
+
+    .portal-modal-close:hover {
+      color: var(--color-white);
+    }
+
+    .portal-modal-body {
+      text-align: center;
+    }
+
+    .portal-modal-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(212, 175, 55, 0.1);
+      color: var(--color-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .portal-modal-title {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+    
+    .portal-modal-category {
+      color: var(--color-gold);
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .portal-modal-desc {
+      color: var(--color-white-muted);
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .portal-modal-links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .portal-link-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--color-white);
+      text-decoration: none;
+      padding: 12px 24px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      transition: var(--transition-normal);
+      width: 100%;
+      max-width: 300px;
+      justify-content: center;
+    }
+
+    .portal-link-item:hover {
+      background: rgba(212, 175, 55, 0.1);
+      color: var(--color-gold);
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header-container">
+      <a href="/" class="logo" style="display: flex; flex-direction: column; align-items: center; text-decoration: none;">
+        <span class="logo-text" style="color: var(--color-white);">Shamim Plaza</span>
+        <span style="font-family: 'Outfit', sans-serif; font-size: 0.65rem; font-weight: 500; letter-spacing: 3px; color: var(--color-gold); text-transform: uppercase; margin-top: 4px;">SYLHET, BANGLADESH</span>
+      </a>
+      
+      <!-- Desktop Nav -->
+      <nav class="desktop-nav">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/about.html" class="nav-link">About Us</a>
+        <div class="nav-dropdown">
+          <a href="/portfolio.html" class="nav-link">Portfolio <i data-lucide="chevron-down" style="width:16px;height:16px;"></i></a>
+          <div class="dropdown-content">
+            <a href="/office.html">Office Space</a>
+            <a href="/retail.html">Retail Space</a>
+            <a href="/furnished.html">Furnished Apartments</a>
+            <a href="/unfurnished.html">Unfurnished Apartments</a>
+          </div>
+        </div>
+        <a href="/portal.html" class="nav-link active">Resident Portal</a>
+        <a href="/contact.html" class="nav-link">Contact Us</a>
+      </nav>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-btn" id="mobile-menu-btn">
+      <i data-lucide="menu"></i>
+    </button>
+  </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobile-menu">
+    <div class="mobile-menu-header">
+      <div class="logo">
+        <div class="logo-text">Shamim Plaza</div>
+      </div>
+      <button class="close-menu-btn" id="close-menu-btn">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+    <div class="mobile-nav">
+      <a href="/">Home</a>
+      <a href="/about.html">About Us</a>
+      <a href="/portfolio.html">Portfolio</a>
+      <div class="mobile-sub-nav">
+        <a href="/furnished.html">Residential</a>
+        <a href="/office.html">Office Space</a>
+        <a href="/retail.html">Retail Space</a>
+      </div>
+      <a href="/portal.html" class="active">Resident Portal</a>
+      <a href="/contact.html">Contact Us</a>
+    </div>
+  </div>
+
+  <!-- Portal Hero -->
+  <section class="portal-hero">
+    <div class="container reveal">
+      <h1 class="text-white" style="font-size: clamp(2.5rem, 5vw, 4rem); font-family: 'Italiana', serif; margin-bottom: 20px;">Resident Portal</h1>
+      <p class="text-gold" style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">Discover the premier businesses and commercial partners located at Shamim Plaza.</p>
+    </div>
+  </section>
+
+  <!-- Directory Grid -->
+  <section class="section">
+    <div class="directory-grid reveal reveal-delay-1" id="business-grid">
+      <!-- Cards will be injected by JavaScript -->
+    </div>
+  </section>
+
+  <!-- Business Modal -->
+  <div class="portal-modal" id="business-modal">
+    <div class="portal-modal-content">
+      <button class="portal-modal-close" id="modal-close-btn">
+        <i data-lucide="x" style="width: 24px; height: 24px;"></i>
+      </button>
+      <div class="portal-modal-body">
+        <div class="portal-modal-icon" id="modal-icon"></div>
+        <h2 class="portal-modal-title text-white" id="modal-title">Business Name</h2>
+        <div class="portal-modal-category" id="modal-category">Category</div>
+        <p class="portal-modal-desc" id="modal-desc">Business description goes here.</p>
+        <div class="portal-modal-links" id="modal-links">
+          <!-- Links injected here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p style="text-align: center; color: var(--color-white-muted);">
+        &copy; 2024 Shamim Plaza. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script type="module" src="/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const modal = document.getElementById("business-modal");
+      const closeBtn = document.getElementById("modal-close-btn");
+
+      // Close Modal Logic
+      const closeModal = () => {
+        modal.classList.remove("active");
+        document.body.style.overflow = '';
+      };
+
+      closeBtn.addEventListener("click", closeModal);
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+      
+      // Escape key to close
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("active")) {
+          closeModal();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

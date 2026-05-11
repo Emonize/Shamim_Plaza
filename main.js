@@ -541,8 +541,80 @@ async function fetchAndRenderSettings() {
   }
 }
 
+async function fetchAndRenderBusinesses() {
+  const grid = document.getElementById("business-grid");
+  if (!grid) return;
+
+  try {
+    const businesses = await client.fetch('*[_type == "business" && isActive == true] | order(order asc)');
+    
+    if (businesses.length === 0) {
+      grid.innerHTML = '<p class="text-white-muted" style="grid-column: 1/-1; text-align: center;">No businesses listed at the moment.</p>';
+      return;
+    }
+
+    grid.innerHTML = '';
+    
+    const modal = document.getElementById("business-modal");
+    const mIcon = document.getElementById("modal-icon");
+    const mTitle = document.getElementById("modal-title");
+    const mCategory = document.getElementById("modal-category");
+    const mDesc = document.getElementById("modal-desc");
+    const mLinks = document.getElementById("modal-links");
+
+    businesses.forEach((biz) => {
+      const card = document.createElement("div");
+      card.className = "business-card";
+      card.innerHTML = `
+        <div class="business-icon">
+          <i data-lucide="${biz.icon || 'briefcase'}" style="width: 32px; height: 32px;"></i>
+        </div>
+        <h3 class="business-name">${biz.name}</h3>
+        <div class="business-category">${biz.category}</div>
+        <p class="text-white-muted" style="font-size: 0.95rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${biz.description}</p>
+      `;
+      
+      card.addEventListener("click", () => {
+        mIcon.innerHTML = `<i data-lucide="${biz.icon || 'briefcase'}" style="width: 40px; height: 40px;"></i>`;
+        mTitle.textContent = biz.name;
+        mCategory.textContent = biz.category;
+        mDesc.textContent = biz.description;
+        
+        let linksHtml = '';
+        if (biz.phone) {
+          linksHtml += `
+            <a href="tel:${biz.phone}" class="portal-link-item">
+              <i data-lucide="phone" style="width: 20px; height: 20px;"></i>
+              ${biz.phone}
+            </a>`;
+        }
+        if (biz.website) {
+          linksHtml += `
+            <a href="${biz.website}" target="_blank" rel="noopener noreferrer" class="portal-link-item">
+              <i data-lucide="globe" style="width: 20px; height: 20px;"></i>
+              Visit Website
+            </a>`;
+        }
+        mLinks.innerHTML = linksHtml;
+        
+        window.refreshIcons();
+        modal.classList.add("active");
+        document.body.style.overflow = 'hidden';
+      });
+
+      grid.appendChild(card);
+    });
+    
+    window.refreshIcons();
+  } catch (error) {
+    console.error("Error fetching businesses:", error);
+    grid.innerHTML = '<p class="text-white-muted" style="grid-column: 1/-1; text-align: center;">Unable to load directory at this time.</p>';
+  }
+}
+
 // Run fetchers
 fetchAndRenderSettings();
 fetchAndRenderAmenities();
 fetchAndRenderProperties();
 fetchAndRenderPromotions();
+fetchAndRenderBusinesses();

@@ -54,9 +54,10 @@
       <div class="header-container">
         <a href="/" class="logo">
           <img src="/logo.jpg" alt="Shamim Plaza Logo" class="main-logo" style="height: 50px; width: auto; border-radius: 50%;">
-          <span class="logo-text">
-            <span style="--i:1">S</span><span style="--i:2">H</span><span style="--i:3">A</span><span style="--i:4">M</span><span style="--i:5">I</span><span style="--i:6">M</span><span style="--i:7">&nbsp;</span><span style="--i:8">P</span><span style="--i:9">L</span><span style="--i:10">A</span><span style="--i:11">Z</span><span style="--i:12">A</span>
-          </span>
+          <div style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start;">
+            <span class="logo-text" style="line-height: 1; margin-bottom: 2px;">Shamim Plaza</span>
+            <span style="font-family: 'Outfit', sans-serif; font-size: 0.75rem; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; color: var(--color-gold); line-height: 1; margin-left: 2px;">Sylhet, Bangladesh</span>
+          </div>
         </a>
         
         <!-- Desktop Nav -->
@@ -73,6 +74,7 @@
               <a href="/retail.html">Retail Space</a>
             </div>
           </div>
+          <a href="/portal.html" class="nav-link">Resident Portal</a>
           <a href="/contact.html" class="nav-link">Contact Us</a>
         </nav>
 
@@ -99,20 +101,27 @@
           <a href="/office.html">Office Space</a>
           <a href="/retail.html">Retail Space</a>
         </div>
+        <a href="/portal.html">Resident Portal</a>
         <a href="/contact.html">Contact Us</a>
       </nav>
     </div>
 
     <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-bg" id="hero-parallax"></div>
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <h1 id="hero-title" class="hero-title">Elevation. Elegance. Excellence.</h1>
-        <p id="hero-subtitle" class="hero-subtitle">The New Landmark of South Shahi Eidgah. Sylhet's premier destination for business, commerce, and bespoke living.</p>
-        <div class="hero-cta">
-          <a href="/portfolio.html" class="btn btn-ghost">Explore Spaces</a>
-          <a href="/contact.html" class="btn btn-gold">Book a Stay</a>
+      <div class="hero-container">
+        <!-- Left Side: Typography & CTA -->
+        <div class="hero-content">
+          <h1 id="hero-title" class="hero-title">Elevation. Elegance. Excellence.</h1>
+          <p id="hero-subtitle" class="hero-subtitle">The New Landmark of South Shahi Eidgah. Sylhet's premier destination for business, commerce, and bespoke living.</p>
+          <div class="hero-cta">
+            <a href="/portfolio.html" class="btn btn-ghost">Explore Spaces</a>
+            <a href="/contact.html" class="btn btn-gold">Book a Stay</a>
+          </div>
+        </div>
+        
+        <!-- Right Side: Fully Visible Building Image -->
+        <div class="hero-image-wrapper">
+          <img src="/shamim_plaza.jpg" alt="Shamim Plaza Building" class="hero-image">
         </div>
       </div>
     </section>
