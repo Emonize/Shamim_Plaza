@@ -632,14 +632,14 @@ async function fetchAndRenderBusinesses() {
         </div>
         <h3 class="business-name">${biz.name}</h3>
         <div class="business-category">${biz.category}</div>
-        <p class="text-white-muted" style="font-size: 0.95rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${biz.description}</p>
+        <p class="text-white-muted" style="font-size: 0.95rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${biz.description || ''}</p>
       `;
       
       card.addEventListener("click", () => {
         mIcon.innerHTML = `<i data-lucide="${biz.icon || 'briefcase'}" style="width: 40px; height: 40px;"></i>`;
         mTitle.textContent = biz.name;
         mCategory.textContent = biz.category;
-        mDesc.textContent = biz.description;
+        mDesc.textContent = biz.description || '';
         
         let linksHtml = '';
         if (biz.phone) {
