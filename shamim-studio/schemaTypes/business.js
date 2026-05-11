@@ -54,8 +54,17 @@ export default {
           { title: '✂️ Scissors / Salon', value: 'scissors' },
           { title: '🏥 Cross / Clinic', value: 'activity' },
           { title: '💎 Diamond / Luxury', value: 'gem' },
-          { title: 'Globe / Web', value: 'globe' },
-          { title: 'Star / Featured', value: 'star' }
+          { title: '🌐 Globe / Web', value: 'globe' },
+          { title: '⭐ Star / Featured', value: 'star' },
+          { title: '🎓 Graduation Cap / Education', value: 'graduation-cap' },
+          { title: '🏋️ Dumbbell / Gym & Fitness', value: 'dumbbell' },
+          { title: '🚗 Car / Automotive', value: 'car' },
+          { title: '📦 Package / Logistics', value: 'package' },
+          { title: '🛒 Shopping Cart / Grocery', value: 'shopping-cart' },
+          { title: '🏦 Landmark / Bank & Finance', value: 'landmark' },
+          { title: '✈️ Plane / Travel', value: 'plane' },
+          { title: '🎨 Palette / Creative', value: 'palette' },
+          { title: '📷 Camera / Photography', value: 'camera' }
         ]
       },
       validation: Rule => Rule.required()
