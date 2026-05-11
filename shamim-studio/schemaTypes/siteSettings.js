@@ -14,6 +14,15 @@ export default {
       type: 'text'
     },
     {
+      name: 'heroImage',
+      title: 'Homepage Hero Image',
+      type: 'image',
+      options: {
+        hotspot: true
+      },
+      description: 'The large building image displayed on the home page.'
+    },
+    {
       name: 'aboutVision',
       title: 'About Us - Our Vision',
       type: 'text'

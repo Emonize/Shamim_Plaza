@@ -537,6 +537,14 @@ async function fetchAndRenderSettings() {
     updateText('hero-title', settings.heroTitle);
     updateText('hero-subtitle', settings.heroSubtitle);
     
+    // Homepage Hero Image
+    if (settings.heroImage && settings.heroImage.asset) {
+      const heroImageEl = document.querySelector('.hero-image');
+      if (heroImageEl) {
+        heroImageEl.src = urlFor(settings.heroImage).url();
+      }
+    }
+    
     // About
     updateText('about-vision', settings.aboutVision);
     updateText('about-fundamentals', settings.aboutFundamentals);
