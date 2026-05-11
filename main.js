@@ -423,7 +423,7 @@ async function fetchAndRenderProperties() {
 
            if (item.type === 'video') {
              return `<div style="${itemStyle}" onclick="window.openVideoModal('${item.url}')">
-                <video src="${item.url}" muted playsinline class="property-card-img" style="filter: brightness(0.85);"></video>
+                <video src="${item.url}" autoplay loop muted playsinline class="property-card-img" style="filter: brightness(0.85); object-fit: cover; width: 100%; height: 100%; background: #000;"></video>
                 <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.5); border-radius: 50%; padding: ${displayItems.length>2?'6px':'8px'}; color: var(--color-gold); backdrop-filter: blur(4px); pointer-events: none;">
                   <i data-lucide="play" style="width: ${displayItems.length>2?'16px':'20px'}; height: ${displayItems.length>2?'16px':'20px'}; margin-left: 2px;"></i>
                 </div>
