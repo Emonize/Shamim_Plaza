@@ -181,9 +181,12 @@
   <!-- Header -->
   <header class="header" id="header">
     <div class="header-container">
-      <a href="/" class="logo" style="display: flex; flex-direction: column; align-items: center; text-decoration: none;">
-        <span class="logo-text" style="color: var(--color-white);">Shamim Plaza</span>
-        <span style="font-family: 'Outfit', sans-serif; font-size: 0.65rem; font-weight: 500; letter-spacing: 3px; color: var(--color-gold); text-transform: uppercase; margin-top: 4px;">SYLHET, BANGLADESH</span>
+      <a href="/" class="logo">
+        <img src="/logo.jpg" alt="Shamim Plaza Logo" class="main-logo" style="height: 50px; width: auto; border-radius: 50%;">
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start;">
+          <span class="logo-text" style="line-height: 1; margin-bottom: 2px;">Shamim Plaza</span>
+          <span style="font-family: 'Outfit', sans-serif; font-size: 0.75rem; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; color: var(--color-gold); line-height: 1; margin-left: 2px;">Sylhet, Bangladesh</span>
+        </div>
       </a>
       
       <!-- Desktop Nav -->
@@ -193,10 +196,11 @@
         <div class="nav-dropdown">
           <a href="/portfolio.html" class="nav-link">Portfolio <i data-lucide="chevron-down" style="width:16px;height:16px;"></i></a>
           <div class="dropdown-content">
+            <a href="/portfolio.html" style="font-weight: 600;">All Spaces</a>
+            <a href="/furnished.html" class="sub-item">- Furnished Apartment</a>
+            <a href="/unfurnished.html" class="sub-item">- Non Furnished Apartment</a>
             <a href="/office.html">Office Space</a>
             <a href="/retail.html">Retail Space</a>
-            <a href="/furnished.html">Furnished Apartments</a>
-            <a href="/unfurnished.html">Unfurnished Apartments</a>
           </div>
         </div>
         <a href="/portal.html" class="nav-link active">Resident Portal</a>
@@ -204,34 +208,31 @@
       </nav>
 
     <!-- Mobile Menu Toggle -->
-    <button class="mobile-menu-btn" id="mobile-menu-btn">
-      <i data-lucide="menu"></i>
+    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+      <span style="font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--color-gold);">Menu</span>
     </button>
   </div>
   </header>
 
-  <!-- Mobile Menu Overlay -->
+  <!-- Mobile Fullscreen Menu -->
   <div class="mobile-menu-overlay" id="mobile-menu">
-    <div class="mobile-menu-header">
-      <div class="logo">
-        <div class="logo-text">Shamim Plaza</div>
-      </div>
-      <button class="close-menu-btn" id="close-menu-btn">
-        <i data-lucide="x"></i>
-      </button>
-    </div>
-    <div class="mobile-nav">
+    <button class="close-menu-btn" id="close-menu-btn">
+      <i data-lucide="x"></i>
+    </button>
+    <nav class="mobile-nav">
       <a href="/">Home</a>
       <a href="/about.html">About Us</a>
       <a href="/portfolio.html">Portfolio</a>
       <div class="mobile-sub-nav">
-        <a href="/furnished.html">Residential</a>
+        <a href="/portfolio.html" style="color: var(--color-gold); font-weight: 600;">All Spaces</a>
+        <a href="/furnished.html" style="padding-left: 20px; font-size: 0.95rem;">- Furnished Apartment</a>
+        <a href="/unfurnished.html" style="padding-left: 20px; font-size: 0.95rem;">- Non Furnished Apartment</a>
         <a href="/office.html">Office Space</a>
         <a href="/retail.html">Retail Space</a>
       </div>
       <a href="/portal.html" class="active">Resident Portal</a>
       <a href="/contact.html">Contact Us</a>
-    </div>
+    </nav>
   </div>
 
   <!-- Portal Hero -->
