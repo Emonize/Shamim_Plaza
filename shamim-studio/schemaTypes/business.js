@@ -66,14 +66,12 @@ export default {
           { title: '🎨 Palette / Creative', value: 'palette' },
           { title: '📷 Camera / Photography', value: 'camera' }
         ]
-      },
-      validation: Rule => Rule.required()
+      }
     },
     {
       name: 'description',
       title: 'Description',
-      type: 'text',
-      validation: Rule => Rule.required()
+      type: 'text'
     },
     {
       name: 'phone',
