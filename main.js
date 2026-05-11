@@ -574,6 +574,15 @@ async function fetchAndRenderSettings() {
           heroImageEl.src = urlFor(homepageSettings.heroImage).url();
         }
       }
+      
+      // Hero Book Button
+      if (homepageSettings.bookStayLink) {
+        const heroBookBtn = document.getElementById('hero-book-btn');
+        if (heroBookBtn) {
+          heroBookBtn.href = homepageSettings.bookStayLink;
+          heroBookBtn.target = '_blank';
+        }
+      }
     }
     
     // About

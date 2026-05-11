@@ -21,6 +21,12 @@ export default {
         hotspot: true
       },
       description: 'The large building image displayed on the home page.'
+    },
+    {
+      name: 'bookStayLink',
+      title: 'Book a Stay URL',
+      type: 'url',
+      description: 'Optional. The link for the "Book a Stay" button on the hero section (e.g. Airbnb profile).'
     }
   ],
   preview: {
