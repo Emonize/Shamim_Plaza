@@ -4,24 +4,11 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'aboutVision',
-      title: 'Our Vision',
-      type: 'text'
-    },
-    {
-      name: 'aboutFundamentals',
-      title: 'The Fundamentals',
-      type: 'text'
-    },
-    {
-      name: 'aboutStructure',
-      title: 'The Structure',
-      type: 'text'
-    },
-    {
-      name: 'aboutConclusion',
-      title: 'Conclusion',
-      type: 'text'
+      name: 'aboutContent',
+      title: 'About Content',
+      type: 'text',
+      rows: 15,
+      description: 'Write your full about section here. Use blank lines to create new paragraphs.'
     }
   ],
   preview: {

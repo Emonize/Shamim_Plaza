@@ -574,11 +574,18 @@ async function fetchAndRenderSettings() {
     }
     
     // About
-    if (aboutSettings) {
-      updateText('about-vision', aboutSettings.aboutVision);
-      updateText('about-fundamentals', aboutSettings.aboutFundamentals);
-      updateText('about-structure', aboutSettings.aboutStructure);
-      updateText('about-conclusion', aboutSettings.aboutConclusion);
+    if (aboutSettings && aboutSettings.aboutContent) {
+      const container = document.getElementById('about-content-container');
+      if (container) {
+        const paragraphs = aboutSettings.aboutContent.split('\n\n').filter(p => p.trim() !== '');
+        container.innerHTML = paragraphs.map((p, index) => {
+          // make the last paragraph look like the conclusion (centered, white text, top border)
+          if (index === paragraphs.length - 1 && paragraphs.length > 1) {
+            return `<p class="text-white" style="font-size: 1.15rem; margin: 0; text-align: center; padding-top: 20px; border-top: 1px solid rgba(212, 175, 55, 0.2);">${p.replace(/\n/g, '<br>')}</p>`;
+          }
+          return `<p class="text-white-muted" style="font-size: 1.05rem; margin-bottom: 24px;">${p.replace(/\n/g, '<br>')}</p>`;
+        }).join('');
+      }
     }
 
     // Contact & Global
