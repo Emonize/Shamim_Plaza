@@ -1,7 +1,9 @@
 import property from './property'
 import amenity from './amenity'
 import promotion from './promotion'
-import siteSettings from './siteSettings'
+import homepageSettings from './homepageSettings'
+import aboutSettings from './aboutSettings'
+import contactSettings from './contactSettings'
 import business from './business'
 
-export const schemaTypes = [property, amenity, promotion, siteSettings, business]
+export const schemaTypes = [property, amenity, promotion, homepageSettings, aboutSettings, contactSettings, business]

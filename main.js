@@ -525,8 +525,11 @@ async function fetchAndRenderPromotions() {
 
 async function fetchAndRenderSettings() {
   try {
-    const settings = await client.fetch(`*[_type == "siteSettings"][0]`);
-    if (!settings) return;
+    const [homepageSettings, aboutSettings, contactSettings] = await Promise.all([
+      client.fetch(`*[_type == "homepageSettings"][0]`),
+      client.fetch(`*[_type == "aboutSettings"][0]`),
+      client.fetch(`*[_type == "contactSettings"][0]`)
+    ]);
 
     const updateText = (id, text) => {
       const el = document.getElementById(id);
@@ -534,31 +537,35 @@ async function fetchAndRenderSettings() {
     };
 
     // Homepage
-    updateText('hero-title', settings.heroTitle);
-    updateText('hero-subtitle', settings.heroSubtitle);
-    
-    // Homepage Hero Image
-    if (settings.heroImage && settings.heroImage.asset) {
-      const heroImageEl = document.querySelector('.hero-image');
-      if (heroImageEl) {
-        heroImageEl.src = urlFor(settings.heroImage).url();
+    if (homepageSettings) {
+      updateText('hero-title', homepageSettings.heroTitle);
+      updateText('hero-subtitle', homepageSettings.heroSubtitle);
+      
+      // Homepage Hero Image
+      if (homepageSettings.heroImage && homepageSettings.heroImage.asset) {
+        const heroImageEl = document.querySelector('.hero-image');
+        if (heroImageEl) {
+          heroImageEl.src = urlFor(homepageSettings.heroImage).url();
+        }
       }
     }
     
     // About
-    updateText('about-vision', settings.aboutVision);
-    updateText('about-fundamentals', settings.aboutFundamentals);
-    updateText('about-structure', settings.aboutStructure);
-    updateText('about-conclusion', settings.aboutConclusion);
+    if (aboutSettings) {
+      updateText('about-vision', aboutSettings.aboutVision);
+      updateText('about-fundamentals', aboutSettings.aboutFundamentals);
+      updateText('about-structure', aboutSettings.aboutStructure);
+      updateText('about-conclusion', aboutSettings.aboutConclusion);
+    }
 
-    // Contact
-    updateText('contact-address', settings.contactAddress);
-    updateText('contact-city', settings.contactCity);
-    updateText('contact-phone', settings.contactPhone);
-    updateText('contact-email', settings.contactEmail);
-    
-    // Global
-    updateText('footer-text', settings.footerText);
+    // Contact & Global
+    if (contactSettings) {
+      updateText('contact-address', contactSettings.contactAddress);
+      updateText('contact-city', contactSettings.contactCity);
+      updateText('contact-phone', contactSettings.contactPhone);
+      updateText('contact-email', contactSettings.contactEmail);
+      updateText('footer-text', contactSettings.footerText);
+    }
     
   } catch (error) {
     console.error("Error fetching site settings:", error);
