@@ -1,11 +1,13 @@
 import './src/styles/main.css'
-import { createIcons, Gem, Store, Building2, BedDouble, ShieldCheck, ArrowUpDown, Car, Zap, MessageCircle, Mail, MapPin, Phone, Home, Wifi, ArrowUpCircle, Wind, Maximize, ChevronDown, ChevronLeft, X, ExternalLink, Check, CheckCircle2, ChevronRight, Menu, PaintBucket, Play, XCircle, Camera, KeyRound, Droplets, Flame, Sparkles, Clock, Package, TreePine, Sun, Lock, Briefcase, PenTool, Scale, Monitor, Coffee, Utensils, Scissors, Activity, Globe, Star, GraduationCap, Dumbbell, ShoppingCart, Landmark, Plane, Palette } from 'lucide';
+import { createIcons, ArrowLeft, ArrowRight, Gem, Store, Building2, BedDouble, ShieldCheck, ArrowUpDown, Car, Zap, MessageCircle, Mail, MapPin, Phone, Home, Wifi, ArrowUpCircle, Wind, Maximize, ChevronDown, ChevronLeft, X, ExternalLink, Check, CheckCircle2, ChevronRight, Menu, PaintBucket, Play, XCircle, Camera, KeyRound, Droplets, Flame, Sparkles, Clock, Package, TreePine, Sun, Lock, Briefcase, PenTool, Scale, Monitor, Coffee, Utensils, Scissors, Activity, Globe, Star, GraduationCap, Dumbbell, ShoppingCart, Landmark, Plane, Palette } from 'lucide';
 import { client, urlFor } from './src/sanityClient.js';
 
 // Initialize Icons globally so we can call it again when injecting new HTML
 window.refreshIcons = () => {
   createIcons({
     icons: {
+      ArrowLeft,
+      ArrowRight,
       Gem,
       Store,
       Building2,
@@ -214,10 +216,10 @@ window.openLightbox = function(images, index) {
         <i data-lucide="x" style="width: 28px; height: 28px;"></i>
       </button>
       <button id="lightbox-prev" class="lightbox-btn lightbox-nav lightbox-prev" aria-label="Previous Image">
-        <i data-lucide="chevron-left"></i>
+        <i data-lucide="arrow-left"></i>
       </button>
       <button id="lightbox-next" class="lightbox-btn lightbox-nav lightbox-next" aria-label="Next Image">
-        <i data-lucide="chevron-right"></i>
+        <i data-lucide="arrow-right"></i>
       </button>
       <div class="lightbox-content">
         <img id="lightbox-image" src="" alt="Gallery Image">
