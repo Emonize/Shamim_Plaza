@@ -2,7 +2,7 @@ import {BigToggle} from '../components/BigToggle'
 
 export default {
   name: 'business',
-  title: 'Resident Business',
+  title: 'Tenants',
   type: 'document',
   fieldsets: [
     {
