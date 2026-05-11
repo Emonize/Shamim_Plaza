@@ -1,5 +1,5 @@
 import './src/styles/main.css'
-import { createIcons, Gem, Store, Building2, BedDouble, ShieldCheck, ArrowUpDown, Car, Zap, MessageCircle, Mail, MapPin, Phone, Home, Wifi, ArrowUpCircle, Wind, Maximize, ChevronDown, ChevronLeft, X, ExternalLink, Check, CheckCircle2, ChevronRight, Menu, PaintBucket, Play, XCircle, Camera, KeyRound, Droplets, Flame, Sparkles, Clock, Package, TreePine, Sun, Lock } from 'lucide';
+import { createIcons, Gem, Store, Building2, BedDouble, ShieldCheck, ArrowUpDown, Car, Zap, MessageCircle, Mail, MapPin, Phone, Home, Wifi, ArrowUpCircle, Wind, Maximize, ChevronDown, ChevronLeft, X, ExternalLink, Check, CheckCircle2, ChevronRight, Menu, PaintBucket, Play, XCircle, Camera, KeyRound, Droplets, Flame, Sparkles, Clock, Package, TreePine, Sun, Lock, Briefcase, PenTool, Scale, Monitor, Coffee, Utensils, Scissors, Activity, Globe, Star } from 'lucide';
 import { client, urlFor } from './src/sanityClient.js';
 
 // Initialize Icons globally so we can call it again when injecting new HTML
@@ -43,7 +43,17 @@ window.refreshIcons = () => {
       Package,
       TreePine,
       Sun,
-      Lock
+      Lock,
+      Briefcase,
+      PenTool,
+      Scale,
+      Monitor,
+      Coffee,
+      Utensils,
+      Scissors,
+      Activity,
+      Globe,
+      Star
     }
   });
 };
