@@ -1,6 +1,6 @@
 export default {
   name: 'aboutSettings',
-  title: 'About Us Settings',
+  title: 'About Settings',
   type: 'document',
   fields: [
     {
@@ -27,8 +27,8 @@ export default {
   preview: {
     prepare() {
       return {
-        title: 'About Us Settings',
-        subtitle: 'Edit about us content'
+        title: 'About Settings',
+        subtitle: 'Edit about content'
       }
     }
   }
