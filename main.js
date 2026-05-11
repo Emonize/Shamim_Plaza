@@ -656,6 +656,20 @@ async function fetchAndRenderBusinesses() {
               Visit Website
             </a>`;
         }
+        if (biz.facebook) {
+          linksHtml += `
+            <a href="${biz.facebook}" target="_blank" rel="noopener noreferrer" class="portal-link-item">
+              <i data-lucide="facebook" style="width: 20px; height: 20px;"></i>
+              Facebook
+            </a>`;
+        }
+        if (biz.twitter) {
+          linksHtml += `
+            <a href="${biz.twitter}" target="_blank" rel="noopener noreferrer" class="portal-link-item">
+              <i data-lucide="twitter" style="width: 20px; height: 20px;"></i>
+              Twitter
+            </a>`;
+        }
         mLinks.innerHTML = linksHtml;
         
         window.refreshIcons();

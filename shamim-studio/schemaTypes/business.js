@@ -84,6 +84,18 @@ export default {
       type: 'url'
     },
     {
+      name: 'facebook',
+      title: 'Facebook URL',
+      type: 'url',
+      description: 'Optional link to Facebook page'
+    },
+    {
+      name: 'twitter',
+      title: 'Twitter URL',
+      type: 'url',
+      description: 'Optional link to Twitter/X profile'
+    },
+    {
       name: 'order',
       title: 'Display Order',
       type: 'number',
