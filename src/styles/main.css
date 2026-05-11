@@ -452,6 +452,9 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     gap: 40px;
   }
+  .hero-image-wrapper {
+    order: -1;
+  }
 }
 
 .hero-content {

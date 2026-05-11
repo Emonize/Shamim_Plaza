@@ -13,7 +13,8 @@ export default defineConfig({
         furnished: resolve(__dirname, 'furnished.html'),
         unfurnished: resolve(__dirname, 'unfurnished.html'),
         office: resolve(__dirname, 'office.html'),
-        retail: resolve(__dirname, 'retail.html')
+        retail: resolve(__dirname, 'retail.html'),
+        portal: resolve(__dirname, 'portal.html')
       }
     }
   }
