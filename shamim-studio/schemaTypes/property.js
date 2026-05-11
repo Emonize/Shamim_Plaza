@@ -80,6 +80,12 @@ export default {
       type: 'text'
     },
     {
+      name: 'airbnbLink',
+      title: 'Airbnb Link',
+      type: 'url',
+      description: 'Optional. If provided, a "Book on Airbnb" button will appear for this property.'
+    },
+    {
       name: 'floorPlan',
       title: 'Floor Plan Image',
       type: 'image',

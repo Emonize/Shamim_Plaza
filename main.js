@@ -453,7 +453,10 @@ async function fetchAndRenderProperties() {
           <p class="property-card-desc">${prop.description ? prop.description.substring(0, 150) + '...' : ''}</p>
           <div class="property-card-actions">
             <div class="property-price">${prop.price || 'Upon Request'}</div>
-            <button class="btn btn-ghost" style="padding: 8px 16px; font-size: 0.85rem;" onclick="window.location.href='/contact.html'">Inquire</button>
+            <div style="display: flex; gap: 8px;">
+              ${prop.airbnbLink ? `<button class="btn btn-primary" style="padding: 8px 16px; font-size: 0.85rem; background: #FF5A5F; border-color: #FF5A5F; color: white;" onclick="window.open('${prop.airbnbLink}', '_blank')"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="width: 14px; height: 14px; fill: currentColor; margin-right: 6px; vertical-align: middle;"><path d="M16 1.923c-8.231 0-14.538 6.554-14.538 14.785 0 8.231 6.308 14.785 14.538 14.785 8.231 0 14.538-6.554 14.538-14.785 0-8.231-6.308-14.785-14.538-14.785zm7.323 21.062c-1.354 0-2.615-.554-3.569-1.538l-.646-.708c-.738-.862-1.938-2.277-3.108-2.277-1.169 0-2.369 1.415-3.108 2.277l-.646.708c-.954.985-2.215 1.538-3.569 1.538-2.8 0-5.077-2.308-5.077-5.138 0-1.846.985-3.508 2.615-4.431l7.077-3.969c.862-.492 1.877-.492 2.738 0l7.077 3.969c1.631.923 2.615 2.585 2.615 4.431 0 2.831-2.277 5.138-5.077 5.138h-.323zM21.2 11.231a3.69 3.69 0 00-3.692-3.692c-2.031 0-3.692 1.662-3.692 3.692S12.169 18 14.2 18h7V11.231z"/></svg>Airbnb</button>` : ''}
+              <button class="btn btn-ghost" style="padding: 8px 16px; font-size: 0.85rem;" onclick="window.location.href='/contact.html'">Inquire</button>
+            </div>
           </div>
         </div>
       `;
