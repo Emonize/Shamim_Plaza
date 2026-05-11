@@ -649,28 +649,28 @@ async function fetchAndRenderBusinesses() {
         };
 
         let linksHtml = '';
-        if (biz.phone) {
+        if (biz.phone && biz.phone.trim() !== '') {
           linksHtml += `
             <a href="tel:${biz.phone}" class="portal-link-item">
               <i data-lucide="phone" style="width: 20px; height: 20px;"></i>
               ${biz.phone}
             </a>`;
         }
-        if (biz.website) {
+        if (biz.website && biz.website.trim() !== '') {
           linksHtml += `
             <a href="${ensureHttps(biz.website)}" target="_blank" rel="noopener noreferrer" class="portal-link-item">
               <i data-lucide="globe" style="width: 20px; height: 20px;"></i>
               Visit Website
             </a>`;
         }
-        if (biz.facebook) {
+        if (biz.facebook && biz.facebook.trim() !== '') {
           linksHtml += `
             <a href="${ensureHttps(biz.facebook)}" target="_blank" rel="noopener noreferrer" class="portal-link-item">
               <i data-lucide="facebook" style="width: 20px; height: 20px;"></i>
               Facebook
             </a>`;
         }
-        if (biz.twitter) {
+        if (biz.twitter && biz.twitter.trim() !== '') {
           linksHtml += `
             <a href="${ensureHttps(biz.twitter)}" target="_blank" rel="noopener noreferrer" class="portal-link-item">
               <i data-lucide="twitter" style="width: 20px; height: 20px;"></i>
