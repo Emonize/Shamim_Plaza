@@ -21,6 +21,6 @@ export const myStructure = (S) =>
         ),
       S.divider(),
       ...S.documentTypeListItems().filter(listItem => 
-        !['homepageSettings', 'aboutSettings', 'contactSettings'].includes(listItem.getId())
+        !['homepageSettings', 'aboutSettings', 'contactSettings', 'siteVisit'].includes(listItem.getId())
       )
     ])
