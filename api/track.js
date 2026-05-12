@@ -31,7 +31,7 @@ export default async function handler(req, res) {
     if (/tablet/i.test(userAgent)) device = 'Tablet';
 
     // Get Sanity config from env vars
-    const projectId = process.env.VITE_SANITY_PROJECT_ID || 'kyd2f6ed';
+    const projectId = process.env.VITE_SANITY_PROJECT_ID || '2za38opa';
     const dataset = process.env.VITE_SANITY_DATASET || 'production';
     const token = process.env.SANITY_WRITE_TOKEN;
 
