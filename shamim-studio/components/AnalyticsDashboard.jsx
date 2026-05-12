@@ -1,8 +1,60 @@
 import React, { useState, useEffect } from 'react'
-import { Card, Container, Heading, Flex, Box, Text, Select, Spinner, Grid } from '@sanity/ui'
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, LineChart, Line } from 'recharts'
-import { MapPin, Users, Globe, Smartphone, Monitor } from 'lucide-react'
+import { Card, Container, Heading, Flex, Box, Text, Select, Spinner, Grid, Badge } from '@sanity/ui'
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, AreaChart, Area } from 'recharts'
+import { MapPin, Users, Globe, Smartphone, Monitor, Activity } from 'lucide-react'
 import { useClient } from 'sanity'
+import styled from 'styled-components'
+
+const DashboardContainer = styled(Container)`
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+`
+
+const StyledCard = styled(Card)`
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+  background: #ffffff;
+
+  &:hover {
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+`
+
+const IconWrapper = styled.div`
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: ${props => props.$bg || 'rgba(15, 15, 17, 0.04)'};
+  color: ${props => props.$color || '#0f0f11'};
+`
+
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div style={{
+        background: '#ffffff',
+        padding: '12px 16px',
+        border: '1px solid rgba(0,0,0,0.08)',
+        borderRadius: '8px',
+        boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+      }}>
+        <p style={{ margin: '0 0 4px 0', fontSize: '12px', color: '#64748b', fontWeight: 600 }}>{label}</p>
+        <p style={{ margin: 0, fontSize: '14px', color: '#0f0f11', fontWeight: 700 }}>
+          {payload[0].value} visitors
+        </p>
+      </div>
+    );
+  }
+  return null;
+};
 
 export function AnalyticsDashboard() {
   const client = useClient({ apiVersion: '2023-01-01' })
@@ -68,131 +120,207 @@ export function AnalyticsDashboard() {
   // Process timeline data by Day
   const timelineCount = data.reduce((acc, visit) => {
     const dateObj = new Date(visit.visitedAt)
-    const day = dateObj.toLocaleDateString()
+    const day = dateObj.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
     acc[day] = (acc[day] || 0) + 1
     return acc
   }, {})
+  
   const timelineData = Object.entries(timelineCount)
-    .map(([name, count]) => ({ name, count }))
-    .sort((a, b) => new Date(a.name).getTime() - new Date(b.name).getTime())
+    .map(([name, count]) => ({ name, count, fullDate: name }))
+    // Sort chronologically using a dummy year if needed, assuming current year for simplicity in display
+    .sort((a, b) => new Date(a.fullDate).getTime() - new Date(b.fullDate).getTime())
+
+  // Default empty state timeline if no data
+  const chartData = timelineData.length > 0 ? timelineData : [
+    { name: 'No Data', count: 0 }
+  ]
 
   return (
-    <Container width={3} padding={4}>
-      <Flex justify="space-between" align="center" paddingBottom={4}>
-        <Heading as="h1" size={4}>Site Analytics</Heading>
-        <Select
-          value={filter}
-          onChange={(e) => setFilter(e.currentTarget.value)}
-          style={{ width: '150px' }}
-        >
-          <option value="all">All Time</option>
-          <option value="today">Today</option>
-          <option value="week">Last 7 Days</option>
-          <option value="month">Last 30 Days</option>
-          <option value="year">Last 12 Months</option>
-        </Select>
-      </Flex>
-
-      {loading ? (
-        <Flex justify="center" align="center" style={{ height: '300px' }}>
-          <Spinner muted />
+    <DashboardContainer padding={[3, 4, 5]}>
+      <Flex direction="column" gap={5}>
+        
+        {/* Header Section */}
+        <Flex justify="space-between" align={['flex-start', 'center']} direction={['column', 'row']} gap={3}>
+          <Box>
+            <Heading as="h1" size={4} style={{ fontWeight: 800, color: '#0f0f11', letterSpacing: '-0.02em' }}>
+              Traffic Overview
+            </Heading>
+            <Text size={2} muted style={{ marginTop: '8px' }}>
+              Monitor your property portfolio's global reach and visitor engagement.
+            </Text>
+          </Box>
+          <Box>
+            <Select
+              value={filter}
+              onChange={(e) => setFilter(e.currentTarget.value)}
+              style={{ 
+                padding: '10px 16px', 
+                borderRadius: '8px',
+                border: '1px solid #e2e8f0',
+                backgroundColor: '#f8fafc',
+                fontSize: '14px',
+                fontWeight: 600,
+                cursor: 'pointer'
+              }}
+            >
+              <option value="all">All Time</option>
+              <option value="today">Today</option>
+              <option value="week">Last 7 Days</option>
+              <option value="month">Last 30 Days</option>
+              <option value="year">Last 12 Months</option>
+            </Select>
+          </Box>
         </Flex>
-      ) : (
-        <Flex direction="column" gap={4}>
-          <Grid columns={3} gap={4}>
-            <Card padding={4} shadow={1} radius={2}>
-              <Flex align="center" gap={3}>
-                <Box style={{ background: '#f0f4f8', padding: '12px', borderRadius: '50%' }}>
-                  <Users color="#0051c3" />
-                </Box>
-                <Box>
-                  <Text size={1} muted>Total Visitors</Text>
-                  <Heading size={3}>{totalVisits}</Heading>
-                </Box>
-              </Flex>
-            </Card>
 
-            <Card padding={4} shadow={1} radius={2}>
-              <Flex align="center" gap={3}>
-                <Box style={{ background: '#f0f4f8', padding: '12px', borderRadius: '50%' }}>
-                  <Monitor color="#0051c3" />
-                </Box>
-                <Box>
-                  <Text size={1} muted>Desktop</Text>
-                  <Heading size={3}>{deviceCount['Desktop'] || 0}</Heading>
-                </Box>
-              </Flex>
-            </Card>
-
-            <Card padding={4} shadow={1} radius={2}>
-              <Flex align="center" gap={3}>
-                <Box style={{ background: '#f0f4f8', padding: '12px', borderRadius: '50%' }}>
-                  <Smartphone color="#0051c3" />
-                </Box>
-                <Box>
-                  <Text size={1} muted>Mobile</Text>
-                  <Heading size={3}>{(deviceCount['Mobile'] || 0) + (deviceCount['Tablet'] || 0)}</Heading>
-                </Box>
-              </Flex>
-            </Card>
-          </Grid>
-
-          <Card padding={4} shadow={1} radius={2}>
-            <Heading as="h3" size={2} style={{ marginBottom: '20px' }}>Visits Over Time</Heading>
-            <div style={{ height: '300px', width: '100%' }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={timelineData}>
-                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
-                  <XAxis dataKey="name" axisLine={false} tickLine={false} tickMargin={10} />
-                  <YAxis axisLine={false} tickLine={false} tickMargin={10} />
-                  <Tooltip />
-                  <Line type="monotone" dataKey="count" stroke="#0051c3" strokeWidth={3} dot={{r: 4}} activeDot={{r: 6}} />
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
-          </Card>
-
-          <Grid columns={2} gap={4}>
-            <Card padding={4} shadow={1} radius={2}>
-              <Flex align="center" gap={2} style={{ marginBottom: '20px' }}>
-                <Globe size={20} />
-                <Heading as="h3" size={2}>Top Countries</Heading>
-              </Flex>
-              <div style={{ height: '250px', width: '100%' }}>
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={countryData} layout="vertical" margin={{ left: 20 }}>
-                    <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#e2e8f0" />
-                    <XAxis type="number" hide />
-                    <YAxis dataKey="name" type="category" axisLine={false} tickLine={false} width={80} />
-                    <Tooltip cursor={{fill: '#f8fafc'}} />
-                    <Bar dataKey="count" fill="#d4af37" radius={[0, 4, 4, 0]} barSize={20} />
-                  </BarChart>
-                </ResponsiveContainer>
-              </div>
-            </Card>
-
-            <Card padding={4} shadow={1} radius={2}>
-              <Flex align="center" gap={2} style={{ marginBottom: '20px' }}>
-                <MapPin size={20} />
-                <Heading as="h3" size={2}>Recent Visitors</Heading>
-              </Flex>
-              <Box style={{ overflowY: 'auto', maxHeight: '250px' }}>
-                {data.slice(0, 10).map((visit, idx) => (
-                  <Flex key={idx} justify="space-between" paddingY={3} style={{ borderBottom: '1px solid #e2e8f0' }}>
-                    <Box>
-                      <Text weight="semibold">{visit.city || 'Unknown City'}, {visit.country}</Text>
-                      <Text size={1} muted style={{ marginTop: '4px' }}>Path: {visit.path}</Text>
-                    </Box>
-                    <Text size={1} muted>
-                      {new Date(visit.visitedAt).toLocaleString()}
+        {loading ? (
+          <Flex justify="center" align="center" style={{ minHeight: '400px' }}>
+            <Spinner muted />
+          </Flex>
+        ) : (
+          <Flex direction="column" gap={5}>
+            
+            {/* Top Metrics Cards */}
+            <Grid columns={[1, 1, 3]} gap={4}>
+              <StyledCard padding={4}>
+                <Flex align="center" gap={4}>
+                  <IconWrapper $bg="rgba(212, 175, 55, 0.1)" $color="#d4af37">
+                    <Users size={24} strokeWidth={2.5} />
+                  </IconWrapper>
+                  <Box>
+                    <Text size={1} style={{ color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px' }}>
+                      Total Visitors
                     </Text>
-                  </Flex>
-                ))}
+                    <Heading size={4} style={{ marginTop: '4px', fontWeight: 700 }}>
+                      {totalVisits.toLocaleString()}
+                    </Heading>
+                  </Box>
+                </Flex>
+              </StyledCard>
+
+              <StyledCard padding={4}>
+                <Flex align="center" gap={4}>
+                  <IconWrapper $bg="rgba(15, 15, 17, 0.04)" $color="#0f0f11">
+                    <Monitor size={24} strokeWidth={2.5} />
+                  </IconWrapper>
+                  <Box>
+                    <Text size={1} style={{ color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px' }}>
+                      Desktop Views
+                    </Text>
+                    <Heading size={4} style={{ marginTop: '4px', fontWeight: 700 }}>
+                      {(deviceCount['Desktop'] || 0).toLocaleString()}
+                    </Heading>
+                  </Box>
+                </Flex>
+              </StyledCard>
+
+              <StyledCard padding={4}>
+                <Flex align="center" gap={4}>
+                  <IconWrapper $bg="rgba(15, 15, 17, 0.04)" $color="#0f0f11">
+                    <Smartphone size={24} strokeWidth={2.5} />
+                  </IconWrapper>
+                  <Box>
+                    <Text size={1} style={{ color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px' }}>
+                      Mobile & Tablet
+                    </Text>
+                    <Heading size={4} style={{ marginTop: '4px', fontWeight: 700 }}>
+                      {((deviceCount['Mobile'] || 0) + (deviceCount['Tablet'] || 0)).toLocaleString()}
+                    </Heading>
+                  </Box>
+                </Flex>
+              </StyledCard>
+            </Grid>
+
+            {/* Main Chart */}
+            <StyledCard padding={4}>
+              <Flex align="center" gap={2} style={{ marginBottom: '24px' }}>
+                <Activity size={20} color="#d4af37" />
+                <Heading as="h3" size={2} style={{ fontWeight: 700 }}>Visitor Activity</Heading>
+              </Flex>
+              <Box style={{ height: '320px', width: '100%' }}>
+                <ResponsiveContainer width="100%" height="100%">
+                  <AreaChart data={chartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                    <defs>
+                      <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="5%" stopColor="#d4af37" stopOpacity={0.3}/>
+                        <stop offset="95%" stopColor="#d4af37" stopOpacity={0}/>
+                      </linearGradient>
+                    </defs>
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                    <XAxis dataKey="name" axisLine={false} tickLine={false} tickMargin={12} tick={{ fill: '#64748b', fontSize: 12 }} />
+                    <YAxis axisLine={false} tickLine={false} tickMargin={12} tick={{ fill: '#64748b', fontSize: 12 }} />
+                    <Tooltip content={<CustomTooltip />} />
+                    <Area type="monotone" dataKey="count" stroke="#d4af37" strokeWidth={3} fillOpacity={1} fill="url(#colorCount)" activeDot={{ r: 6, strokeWidth: 0, fill: '#0f0f11' }} />
+                  </AreaChart>
+                </ResponsiveContainer>
               </Box>
-            </Card>
-          </Grid>
-        </Flex>
-      )}
-    </Container>
+            </StyledCard>
+
+            {/* Bottom Row */}
+            <Grid columns={[1, 1, 2]} gap={4}>
+              
+              {/* Top Countries Bar Chart */}
+              <StyledCard padding={4}>
+                <Flex align="center" gap={2} style={{ marginBottom: '24px' }}>
+                  <Globe size={20} color="#d4af37" />
+                  <Heading as="h3" size={2} style={{ fontWeight: 700 }}>Top Countries</Heading>
+                </Flex>
+                <Box style={{ height: '280px', width: '100%' }}>
+                  {countryData.length > 0 ? (
+                    <ResponsiveContainer width="100%" height="100%">
+                      <BarChart data={countryData} layout="vertical" margin={{ left: 0, right: 20 }}>
+                        <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#f1f5f9" />
+                        <XAxis type="number" hide />
+                        <YAxis dataKey="name" type="category" axisLine={false} tickLine={false} tick={{ fill: '#0f0f11', fontSize: 13, fontWeight: 500 }} width={90} />
+                        <Tooltip cursor={{fill: 'rgba(15,15,17,0.02)'}} content={<CustomTooltip />} />
+                        <Bar dataKey="count" fill="#0f0f11" radius={[0, 4, 4, 0]} barSize={24} />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  ) : (
+                    <Flex justify="center" align="center" style={{ height: '100%' }}>
+                      <Text muted>No location data available yet.</Text>
+                    </Flex>
+                  )}
+                </Box>
+              </StyledCard>
+
+              {/* Recent Feed */}
+              <StyledCard padding={4}>
+                <Flex align="center" justify="space-between" style={{ marginBottom: '24px' }}>
+                  <Flex align="center" gap={2}>
+                    <MapPin size={20} color="#d4af37" />
+                    <Heading as="h3" size={2} style={{ fontWeight: 700 }}>Live Visitor Feed</Heading>
+                  </Flex>
+                  <Badge mode="outline" tone="primary" padding={2} style={{ borderRadius: '6px' }}>
+                    Real-time
+                  </Badge>
+                </Flex>
+                <Box style={{ overflowY: 'auto', maxHeight: '280px', paddingRight: '8px' }}>
+                  {data.length > 0 ? data.slice(0, 15).map((visit, idx) => (
+                    <Flex key={idx} justify="space-between" align="center" paddingY={3} style={{ borderBottom: idx !== Math.min(data.length, 15) - 1 ? '1px solid #f1f5f9' : 'none' }}>
+                      <Box>
+                        <Text style={{ fontWeight: 600, color: '#0f0f11', fontSize: '14px' }}>
+                          {visit.city && visit.city !== 'Unknown' ? `${visit.city}, ` : ''}{visit.country || 'Unknown'}
+                        </Text>
+                        <Text muted style={{ marginTop: '4px', fontSize: '12px', fontFamily: 'monospace' }}>
+                          {visit.path}
+                        </Text>
+                      </Box>
+                      <Text muted style={{ fontSize: '12px', whiteSpace: 'nowrap' }}>
+                        {new Date(visit.visitedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                      </Text>
+                    </Flex>
+                  )) : (
+                    <Flex justify="center" align="center" style={{ height: '200px' }}>
+                      <Text muted>Waiting for new visitors...</Text>
+                    </Flex>
+                  )}
+                </Box>
+              </StyledCard>
+
+            </Grid>
+          </Flex>
+        )}
+      </Flex>
+    </DashboardContainer>
   )
 }
