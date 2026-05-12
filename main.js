@@ -714,3 +714,20 @@ fetchAndRenderAmenities();
 fetchAndRenderProperties();
 fetchAndRenderPromotions();
 fetchAndRenderBusinesses();
+
+// Analytics Tracking
+window.addEventListener('load', () => {
+  const currentPath = window.location.pathname;
+  const trackKey = 'tracked_' + currentPath;
+  if (!sessionStorage.getItem(trackKey)) {
+    fetch('/api/track', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ path: currentPath })
+    })
+    .then(res => {
+      if (res.ok) sessionStorage.setItem(trackKey, 'true');
+    })
+    .catch(e => console.error('Analytics tracking failed', e));
+  }
+});
