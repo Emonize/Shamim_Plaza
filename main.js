@@ -227,8 +227,8 @@ window.openLightbox = function(images, index) {
       </div>
     `;
     document.body.appendChild(modal);
-    if (window.lucide) {
-      window.lucide.createIcons({ attrs: { class: "lucide" }, nameAttr: "data-lucide", root: modal });
+    if (typeof window.refreshIcons === 'function') {
+      window.refreshIcons();
     }
     
     document.getElementById('lightbox-close').addEventListener('click', window.closeLightbox);
@@ -311,8 +311,8 @@ window.openVideoModal = function(videoUrl) {
       </div>
     `;
     document.body.appendChild(modal);
-    if (window.lucide) {
-      window.lucide.createIcons({ attrs: { class: "lucide" }, nameAttr: "data-lucide", root: modal });
+    if (typeof window.refreshIcons === 'function') {
+      window.refreshIcons();
     }
   }
   
