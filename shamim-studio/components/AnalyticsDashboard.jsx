@@ -276,7 +276,7 @@ export function AnalyticsDashboard() {
                       <BarChart data={countryData} layout="vertical" margin={{ left: 0, right: 20 }}>
                         <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="var(--card-border-color)" />
                         <XAxis type="number" hide />
-                        <YAxis dataKey="name" type="category" axisLine={false} tickLine={false} tick={{ fill: 'var(--card-fg)', fontSize: 13, fontWeight: 500 }} width={90} />
+                        <YAxis dataKey="name" type="category" axisLine={false} tickLine={false} tick={{ fill: '#ffffff', fontSize: 13, fontWeight: 500 }} width={140} />
                         <Tooltip cursor={{fill: 'var(--card-muted-bg)'}} content={<CustomTooltip />} />
                         <Bar dataKey="count" fill="#d4af37" radius={[0, 4, 4, 0]} barSize={24} />
                       </BarChart>
