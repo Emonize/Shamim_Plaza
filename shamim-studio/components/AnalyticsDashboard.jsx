@@ -45,6 +45,15 @@ const CustomTooltip = ({ active, payload, label }) => {
   return null;
 };
 
+const getCountryName = (code) => {
+  if (!code || code === 'Unknown') return 'Unknown';
+  try {
+    return new Intl.DisplayNames(['en'], { type: 'region' }).of(code.toUpperCase());
+  } catch (e) {
+    return code.toUpperCase();
+  }
+};
+
 export function AnalyticsDashboard() {
   const client = useClient({ apiVersion: '2023-01-01' })
   const [data, setData] = useState([])
@@ -107,7 +116,7 @@ export function AnalyticsDashboard() {
   const totalVisits = data.length
 
   const countryCount = data.reduce((acc, visit) => {
-    const c = visit.country || 'Unknown'
+    const c = getCountryName(visit.country);
     acc[c] = (acc[c] || 0) + 1
     return acc
   }, {})
@@ -307,7 +316,7 @@ export function AnalyticsDashboard() {
                       <Flex justify="space-between" align="center">
                         <Box>
                           <Text style={{ fontWeight: 600, fontSize: '14px' }}>
-                            {visit.city && visit.city !== 'Unknown' ? `${visit.city}, ` : ''}{visit.country || 'Unknown'}
+                            {visit.city && visit.city !== 'Unknown' ? `${visit.city}, ` : ''}{getCountryName(visit.country)}
                           </Text>
                           <Text muted style={{ marginTop: '4px', fontSize: '12px', fontFamily: 'monospace' }}>
                             {visit.path}
